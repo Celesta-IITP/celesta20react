@@ -11,7 +11,8 @@ import RegisterPage from "views/examples/RegisterPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage1 from "views/examples/RegisterPage1.js";
 import SigninPage from "views/examples/SigninPage.js";
-//import IndexPage from "views/examples/IndexPage.js";
+import Photos from "components/Gallery/gallery.js"
+import Sponsors from "components/Sponsors/sponsors.js"
 
 class App extends React.Component {
   render() {
@@ -35,6 +36,15 @@ class App extends React.Component {
             path="/profile-page"
             render={(props) => <ProfilePage {...props} />}
           />
+          <Route
+            path="/gallery"
+            render={(props) => <Photos {...props} />}
+          />
+          <Route
+            path="/sponsors"
+            render={(props) => <Sponsors {...props} />}
+          />
+          
           <Redirect from="/" to="/components" />
         </Switch>
       </BrowserRouter>
