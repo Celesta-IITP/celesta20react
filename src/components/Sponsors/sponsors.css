@@ -1,0 +1,207 @@
+.sp-main {
+	background-image: linear-gradient(to bottom right, blue, violet,darkblue);
+	width:100%;
+	top:0;
+  overflow: hidden;
+  
+}
+
+.sp-slider {
+	background-color: #01011a;
+	margin-bottom: 0;
+  padding-bottom: 0; 
+  background-image: linear-gradient(to bottom right, blue, violet,darkblue);
+}
+
+h1 {
+  color: whitesmoke;
+  
+  
+}
+
+.sp_head2 {
+	font-size: 5em;
+  padding-top: 5vw;
+  background-image: linear-gradient(to right,);
+  
+  
+}
+
+.sp_head3 {
+	font-size: 3em;
+	padding-top: 15vw;
+	color: white;
+	position: absolute;
+	left:55%;
+}
+
+.sp_head4 {
+	font-size: 3em;
+	padding-top: 20px;
+}
+
+.sp_img {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+.sp-head {
+	padding-bottom: -5px;
+	font-size: 3em;
+	text-transform: uppercase;
+}
+.heading {
+   text-align: center;
+   margin-top:25px;
+
+}
+.sp2 {
+	position: relative;
+	height: 600px;
+	left:-30%;
+	top:5%;
+}
+
+.sp {
+	height: 250px;
+    margin-left:50px;
+    margin-top:50px;
+}
+ img:hover{
+    /*animation:shake 0.5s;
+     animation-iteration-count: infinite;*/
+     
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+}
+
+.sp3 {
+	position: absolute;
+	height: 12vw;
+	left:28vw;
+	top:40vw;
+}
+
+.dotted {
+	
+	font-size: 2.25em;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.width4 {
+  width:15%;
+}
+
+.spon_team {
+	background-color: #01011a;
+	margin-top: 0; 
+	padding-top: 0;
+	padding-bottom: 150px;
+}
+
+.our-team .team-content1{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /*padding: 1px 0;*/
+    background-color: #00b3b3;
+    transition:all 0.3s ease 0s;
+}
+.our-team:hover .team-content1{
+    bottom: 30%;
+}
+.our-team .team-content1 .name{
+    font-size: 0.75em;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 3px;
+    color: white;
+    text-transform: uppercase;
+    transition:all 0.3s ease 0s;
+}
+
+.our-team .team-content1 .email{
+    font-size: 0.6em;
+    display: block;
+    transition:all 0.3s ease 0s;
+    /*text-transform: capitalize;*/
+}
+
+.our-team .team-content1 .phone{
+    font-size: 0.75em;
+    display: block;
+    transition:all 0.3s ease 0s;
+    /*text-transform: capitalize;*/
+}
+
+.mob_container {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+
+	.sp_head2 {
+	font-size: 3em;
+	padding-top: 8vw;
+}
+
+	.sp_head3 {
+		display: none;
+	}
+
+	.dotted {
+	font-size: 1em;
+}
+
+	.sp3 {
+		display: none;
+	}
+
+	.sp2 {
+	position: relative;
+	height: 500px;
+	left:-10%;
+	top:5%;
+	}
+
+	.sp-head2 {
+	padding-bottom: -5px;
+	font-size: 30px;
+	text-transform: uppercase;
+	}
+
+  .spon_team {
+    display: none;
+  }
+  .mob_container {
+    display: block;
+    height: 3000px;
+    background-color: #01011a;
+  }
+  .mob_content-wrapper {
+    height: 100vh;
+    /*display: flex;*/
+    justify-content: center;
+    text-align: center;
+    /*flex-flow: column nowrap;*/
+    color: #fff;
+    font-family: Montserrat;
+    /*text-transform: uppercase;*/
+    -webkit-transform: translateY(4vh);
+            transform: translateY(4vh);
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+  }
+  .width4 {
+    width: 300px;
+  }
+
+
+
+}
