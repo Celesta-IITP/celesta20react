@@ -9,6 +9,7 @@ import Index from "views/Index.js";
 import LandingPage from "views/examples/LandingPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
+import Photos from "components/Gallery/gallery.js"
 
 class App extends React.Component {
   render() {
@@ -27,6 +28,10 @@ class App extends React.Component {
           <Route
             path="/profile-page"
             render={(props) => <ProfilePage {...props} />}
+          />
+          <Route
+            path="/gallery"
+            render={(props) => <Photos {...props} />}
           />
           <Redirect from="/" to="/components" />
         </Switch>
