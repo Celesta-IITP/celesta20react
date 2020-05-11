@@ -14,6 +14,18 @@ Created using IcoMoon - icomoon.io
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Chop';
+  src: url('../fonts/Chopsic-K6Dp.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.brand .h1-seo {
+  font-family: 'Chop';
+  font-size: 30px;
+}
+
 /*------------------------
 	base class definition
 -------------------------*/

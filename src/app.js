@@ -9,8 +9,9 @@ import Index from "views/Index.js";
 import LandingPage from "views/examples/LandingPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
-import Photos from "components/Gallery/gallery.js"
-import Sponsors from "components/Sponsors/sponsors.js"
+import Photos from "components/Gallery/gallery.js";
+import SigninPage from "views/examples/SigninPage.js";
+import Sponsors from "components/Sponsors/sponsors.js";
 
 class App extends React.Component {
   render() {
@@ -25,6 +26,10 @@ class App extends React.Component {
           <Route
             path="/register-page"
             render={(props) => <RegisterPage {...props} />}
+          />
+          <Route
+            path="/signin-page"
+            render={(props) => <SigninPage {...props} />}
           />
           <Route
             path="/profile-page"

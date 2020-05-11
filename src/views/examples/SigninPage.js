@@ -42,7 +42,7 @@ import {
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
 
-class RegisterPage extends React.Component {
+class SigninPage extends React.Component {
   state = {
     squares1to6: "",
     squares7and8: ""
@@ -103,7 +103,7 @@ class RegisterPage extends React.Component {
                           alt="..."
                           src={require("assets/img/square-purple-1.png")}
                         />
-                        <CardTitle tag="h4">Register</CardTitle>
+                        <CardTitle tag="h4">Sign In</CardTitle>
                         <Row>
                         <Button
                           className="btn-icon btn-round"
@@ -136,7 +136,7 @@ class RegisterPage extends React.Component {
                         </Row>
                       </CardHeader>
                       <CardBody>
-                        <h6>Or Be Classic..</h6>
+                      <h6>Or Be Classic..</h6>
                         <Form className="form">
                           <InputGroup
                             className={classnames({
@@ -214,7 +214,7 @@ class RegisterPage extends React.Component {
                       </CardBody>
                       <CardFooter>
                         <Button className="btn-round" color="primary" size="lg">
-                          register
+                          Login
                         </Button>
                       </CardFooter>
                     </Card>
@@ -261,4 +261,4 @@ class RegisterPage extends React.Component {
   }
 }
 
-export default RegisterPage;
+export default SigninPage;
