@@ -34,6 +34,9 @@ import NucleoIcons from "views/IndexSections/NucleoIcons.js";
 import Signup from "views/IndexSections/Signup.js";
 import Examples from "views/IndexSections/Examples.js";
 import Download from "views/IndexSections/Download.js";
+import Header from "views/IndexSections/Header.js";
+import EventSlider from "views/IndexSections/EventSlider.js";
+import StepWise from "views/IndexSections/StepWise.js";
 
 class Index extends React.Component {
   componentDidMount() {
@@ -47,19 +50,10 @@ class Index extends React.Component {
       <>
         <IndexNavbar />
         <div className="wrapper">
-          <PageHeader />
+          <Header />
           <div className="main">
-            <Basics />
-            <Navbars />
-            <Tabs />
-            <Pagination />
-            <Notifications />
-            <Typography />
-            <JavaScript />
-            <NucleoIcons />
-            <Signup />
-            <Examples />
-            <Download />
+            <StepWise />
+            <EventSlider />
           </div>
           <Footer />
         </div>
