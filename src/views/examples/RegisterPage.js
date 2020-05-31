@@ -1,22 +1,8 @@
-/*!
-
-=========================================================
-* BLK Design System React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import classnames from "classnames";
+import { compose } from 'redux';
+import {connect} from "react-redux";
+import {Alert} from "antd";
 // reactstrap components
 import {
   Button,
@@ -41,16 +27,54 @@ import {
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
+import { USER_LOADING } from "redux/actions/types";
+import { registerUser } from "redux/actions/authActions"
+import { clearErrors } from "redux/actions/errorActions"
+import ValidatedLoginForm from "./ValidateLogin"
 
 class RegisterPage extends React.Component {
   state = {
     squares1to6: "",
-    squares7and8: ""
+    squares7and8: "",
+    email:"",
+    password:"",
+    name:"",
+    msg:null
   };
-  componentDidMount() {
+  componentDidMount(){
     document.body.classList.toggle("register-page");
     document.documentElement.addEventListener("mousemove", this.followCursor);
+    console.log(this.props.isLoading)
   }
+  componentDidUpdate(prevProps) {
+    const { error, isAuthenticated } = this.props;
+    const {name,email,password}=this.state
+    if (error !== prevProps.error) {
+      if (error.id === "REGISTER_FAIL") {
+        if(!email || !password || !name){
+          this.setState({
+            msg:"Please enter all fields"
+          })
+        }
+        else{this.setState({
+          msg: error.message
+        });
+      }
+      }
+       else {
+        this.setState({
+          msg: null
+        });
+      }
+    }
+      if (isAuthenticated) {
+        this.toggleModal();
+      }
+  }
+  toggleModal = () => {
+    this.props.clearErrors();
+    this.props.history.push('/');
+  };
   componentWillUnmount() {
     document.body.classList.toggle("register-page");
     document.documentElement.removeEventListener(
@@ -58,6 +82,7 @@ class RegisterPage extends React.Component {
       this.followCursor
     );
   }
+  
   followCursor = event => {
     let posX = event.clientX - window.innerWidth / 2;
     let posY = event.clientY - window.innerWidth / 6;
@@ -76,8 +101,25 @@ class RegisterPage extends React.Component {
         "deg)"
     });
   };
+ handleCreate=(name,email,password)=>{
+  const user = {
+    name,
+    email,
+    password,
+  };
+  this.props.registerUser(user);
+ } 
+submitHandler=e=>{
+  e.preventDefault();
+  const x=this.state.email;
+  const y=this.state.password;
+  const z=this.state.name;
+  this.handleCreate(z,x,y);
+}
   render() {
+    const {msg} = this.state
     return (
+      
       <>
         <ExamplesNavbar />
         <div className="wrapper">
@@ -135,9 +177,12 @@ class RegisterPage extends React.Component {
                         </Button>
                         </Row>
                       </CardHeader>
+                      <div>
+                      {msg ? <h2 style={{fontSize:"25px",color:"black",backgroundImage:"linear-gradient(to bottom right, pink, violet)",textAlign:"center",marginBottom:"30px"}}>{msg}!</h2> : null}
+                      </div>
                       <CardBody>
                         <h6>Or Be Classic..</h6>
-                        <Form className="form">
+                        <Form className="form" onSubmit={this.submitHandler}>
                           <InputGroup
                             className={classnames({
                               "input-group-focus": this.state.fullNameFocus
@@ -157,6 +202,7 @@ class RegisterPage extends React.Component {
                               onBlur={e =>
                                 this.setState({ fullNameFocus: false })
                               }
+                              onChange={(e)=>{this.setState({name:e.target.value}); console.log(this.state.name)}}
                             />
                           </InputGroup>
                           <InputGroup
@@ -174,6 +220,7 @@ class RegisterPage extends React.Component {
                               type="text"
                               onFocus={e => this.setState({ emailFocus: true })}
                               onBlur={e => this.setState({ emailFocus: false })}
+                              onChange={(e)=>{this.setState({email:e.target.value}); console.log(this.state.email)}}
                             />
                           </InputGroup>
                           <InputGroup
@@ -194,7 +241,9 @@ class RegisterPage extends React.Component {
                               }
                               onBlur={e =>
                                 this.setState({ passwordFocus: false })
+                                
                               }
+                              onChange={(e)=>this.setState({password:e.target.value})}
                             />
                           </InputGroup>
                           <FormGroup check className="text-left">
@@ -213,7 +262,7 @@ class RegisterPage extends React.Component {
                         </Form>
                       </CardBody>
                       <CardFooter>
-                        <Button className="btn-round" color="primary" size="lg">
+                        <Button className="btn-round" color="primary" size="lg" onClick={this.submitHandler}>
                           register
                         </Button>
                       </CardFooter>
@@ -260,5 +309,13 @@ class RegisterPage extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  isLoading: state.auth.isLoading,
+  error: state.error,
+});
 
-export default RegisterPage;
+
+export default compose(
+  connect(mapStateToProps,{registerUser, clearErrors})
+)(RegisterPage);

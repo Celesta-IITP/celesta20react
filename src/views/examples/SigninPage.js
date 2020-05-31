@@ -1,22 +1,8 @@
-/*!
-
-=========================================================
-* BLK Design System React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import classnames from "classnames";
+import { compose } from 'redux';
+import {connect} from "react-redux"
+import {Alert} from "antd";
 // reactstrap components
 import {
   Button,
@@ -37,7 +23,8 @@ import {
   Row,
   Col
 } from "reactstrap";
-
+import {loginUser} from "redux/actions/authActions"
+import { clearErrors } from "redux/actions/errorActions"
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import Footer from "components/Footer/Footer.js";
@@ -45,12 +32,55 @@ import Footer from "components/Footer/Footer.js";
 class SigninPage extends React.Component {
   state = {
     squares1to6: "",
-    squares7and8: ""
+    squares7and8: "",
+    name:"",
+    email:"",
+    password:"",
+    msg:null
   };
   componentDidMount() {
     document.body.classList.toggle("register-page");
     document.documentElement.addEventListener("mousemove", this.followCursor);
   }
+  componentDidUpdate(prevProps) {
+    console.log(prevProps)
+    const { error, isAuthenticated } = this.props;
+    const {email,password}=this.state;
+    console.log(error)
+    if (error !== prevProps.error) {
+      if (error.id === "REGISTER_FAIL") {
+        if(!email || !password){
+          this.setState({
+            msg:"Please enter all fields"
+          })
+        }
+        else{this.setState({
+          msg: error.message
+        });
+      }
+      }
+      /*if(!email || !password){
+        this.setState({
+          msg:"Please enter all fields"
+        })
+      }*/ else {
+        this.setState({
+          msg: null
+        });
+      }
+    }
+      if (isAuthenticated) {
+        this.toggleModal();
+      }
+      
+    
+  }
+  toggleModal = () => {
+    this.props.clearErrors();
+    this.props.history.push('/sigin-page');
+  };
+  
+  
   componentWillUnmount() {
     document.body.classList.toggle("register-page");
     document.documentElement.removeEventListener(
@@ -76,7 +106,21 @@ class SigninPage extends React.Component {
         "deg)"
     });
   };
+  handleCreate=(email,password)=>{
+    const user = {
+      email,
+      password
+    };
+    this.props.loginUser(user);
+   } 
+  submitHandler=e=>{
+    e.preventDefault();
+    const x=this.state.email;
+    const y=this.state.password;
+    this.handleCreate(x,y);
+  }
   render() {
+    const {msg}=this.state
     return (
       <>
         <ExamplesNavbar />
@@ -135,6 +179,9 @@ class SigninPage extends React.Component {
                         </Button>
                         </Row>
                       </CardHeader>
+                      <div>
+                        {msg ? <h2 style={{fontSize:"25px",color:"black",backgroundImage:"linear-gradient(to bottom right, pink, violet)",textAlign:"center",marginBottom:"30px"}}>{msg}!</h2> : null}
+                      </div>                     
                       <CardBody>
                       <h6>Or Be Classic..</h6>
                         <Form className="form">
@@ -157,6 +204,7 @@ class SigninPage extends React.Component {
                               onBlur={e =>
                                 this.setState({ fullNameFocus: false })
                               }
+                              onChange={(e)=>{this.setState({name:e.target.value}); console.log(this.state.name)}}
                             />
                           </InputGroup>
                           <InputGroup
@@ -174,7 +222,9 @@ class SigninPage extends React.Component {
                               type="text"
                               onFocus={e => this.setState({ emailFocus: true })}
                               onBlur={e => this.setState({ emailFocus: false })}
+                              onChange={(e)=>{this.setState({email:e.target.value}); console.log(this.state.email)}}
                             />
+                            
                           </InputGroup>
                           <InputGroup
                             className={classnames({
@@ -195,6 +245,7 @@ class SigninPage extends React.Component {
                               onBlur={e =>
                                 this.setState({ passwordFocus: false })
                               }
+                              onChange={(e)=>{this.setState({password:e.target.value})}}
                             />
                           </InputGroup>
                           <FormGroup check className="text-left">
@@ -213,7 +264,7 @@ class SigninPage extends React.Component {
                         </Form>
                       </CardBody>
                       <CardFooter>
-                        <Button className="btn-round" color="primary" size="lg">
+                        <Button className="btn-round" color="primary" size="lg" onClick={this.submitHandler}>>
                           Login
                         </Button>
                       </CardFooter>
@@ -261,4 +312,14 @@ class SigninPage extends React.Component {
   }
 }
 
-export default SigninPage;
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  isLoading: state.auth.isLoading,
+  error: state.error,
+});
+
+
+export default compose(
+  connect(mapStateToProps,{loginUser, clearErrors})
+)(SigninPage);
