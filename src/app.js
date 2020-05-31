@@ -9,6 +9,7 @@ import Index from "views/Index.js";
 import LandingPage from "views/examples/LandingPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
+import ContactUsPage from "views/examples/ContactUsPage.js";
 import Photos from "components/Gallery/gallery.js";
 import SigninPage from "views/examples/SigninPage.js";
 import Sponsors from "components/Sponsors/sponsors.js";
@@ -34,6 +35,10 @@ class App extends React.Component {
           <Route
             path="/profile-page"
             render={(props) => <ProfilePage {...props} />}
+          />
+          <Route
+            path="/contact-us-page"
+            render={(props) => <ContactUsPage {...props} />}
           />
           <Route
             path="/gallery"
