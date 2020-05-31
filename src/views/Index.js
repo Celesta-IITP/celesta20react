@@ -37,6 +37,7 @@ import Download from "views/IndexSections/Download.js";
 import Header from "views/IndexSections/Header.js";
 import EventSlider from "views/IndexSections/EventSlider.js";
 import StepWise from "views/IndexSections/StepWise.js";
+import Stats from "../components/Stats/stats.js"
 
 class Index extends React.Component {
   componentDidMount() {
@@ -53,9 +54,16 @@ class Index extends React.Component {
           <Header />
           <div className="main">
             <StepWise />
+            <Stats/>
             <EventSlider />
           </div>
+          <div>
+          <div>
+           
+          </div>
+          </div>
           <Footer />
+          
         </div>
       </>
     );

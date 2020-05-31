@@ -12,10 +12,13 @@ import ProfilePage from "views/examples/ProfilePage.js";
 import Photos from "components/Gallery/gallery.js";
 import SigninPage from "views/examples/SigninPage.js";
 import Sponsors from "components/Sponsors/sponsors.js";
+import Stats from "components/Stats/stats.js";
 
 class App extends React.Component {
+ 
   render() {
     return (
+     
       <BrowserRouter>
         <Switch>
           <Route path="/components" render={(props) => <Index {...props} />} />
@@ -43,6 +46,10 @@ class App extends React.Component {
             path="/sponsors"
             render={(props) => <Sponsors {...props} />}
           />
+          <Route
+            path="/stats"
+            render={(props) => <Stats {...props} />}
+          />
           
           <Redirect from="/" to="/components" />
         </Switch>
@@ -50,5 +57,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;
