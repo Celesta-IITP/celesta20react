@@ -10,6 +10,7 @@
     "classnames": "2.2.6",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
+    "jquery": "^3.5.1",
     "moment": "2.24.0",
     "node-sass": "^4.13.1",
     "nouislider": "14.2.0",
