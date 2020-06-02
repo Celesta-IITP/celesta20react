@@ -17,6 +17,10 @@
 */
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/img/logo_3.png";
+
+
+
 // reactstrap components
 import {
   Button,
@@ -36,16 +40,22 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
+
 class ComponentsNavbar extends React.Component {
   constructor(props) {
+     
     super(props);
     this.state = {
       collapseOpen: false,
       color: "navbar-transparent"
     };
   }
+
+  
+
   componentDidMount() {
     window.addEventListener("scroll", this.changeColor);
+
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.changeColor);
@@ -67,173 +77,68 @@ class ComponentsNavbar extends React.Component {
       });
     }
   };
-  toggleCollapse = () => {
-    document.documentElement.classList.toggle("nav-open");
-    this.setState({
-      collapseOpen: !this.state.collapseOpen
-    });
-  };
-  onCollapseExiting = () => {
-    this.setState({
-      collapseOut: "collapsing-out"
-    });
-  };
-  onCollapseExited = () => {
-    this.setState({
-      collapseOut: ""
-    });
-  };
-  scrollToDownload = () => {
-    document
-      .getElementById("download-section")
-      .scrollIntoView({ behavior: "smooth" });
-  };
+  
   render() {
     return (
+      
       <Navbar
         className={"fixed-top " + this.state.color}
         color-on-scroll="100"
         expand="lg"
       >
+        
+        
         <Container>
-          <div className="navbar-translate">
-            <NavbarBrand
-              to="/"
-              tag={Link}
-              id="navbar-brand"
-            >
-              <span>BLK• </span>
-              Design System React
-            </NavbarBrand>
-            <UncontrolledTooltip placement="bottom" target="navbar-brand">
-              Designed and Coded by Creative Tim
-            </UncontrolledTooltip>
-            <button
-              aria-expanded={this.state.collapseOpen}
-              className="navbar-toggler navbar-toggler"
-              onClick={this.toggleCollapse}
-            >
-              <span className="navbar-toggler-bar bar1" />
-              <span className="navbar-toggler-bar bar2" />
-              <span className="navbar-toggler-bar bar3" />
-            </button>
-          </div>
-          <Collapse
-            className={"justify-content-end " + this.state.collapseOut}
-            navbar
-            isOpen={this.state.collapseOpen}
-            onExiting={this.onCollapseExiting}
-            onExited={this.onCollapseExited}
-          >
-            <div className="navbar-collapse-header">
-              <Row>
-                <Col className="collapse-brand" xs="6">
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    BLK•React
-                  </a>
-                </Col>
-                <Col className="collapse-close text-right" xs="6">
-                  <button
-                    aria-expanded={this.state.collapseOpen}
-                    className="navbar-toggler"
-                    onClick={this.toggleCollapse}
-                  >
-                    <i className="tim-icons icon-simple-remove" />
-                  </button>
-                </Col>
-              </Row>
-            </div>
-            <Nav navbar>
-              <NavItem className="p-0">
-                <NavLink
-                  data-placement="bottom"
-                  href="https://twitter.com/CreativeTim"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="Follow us on Twitter"
-                >
-                  <i className="fab fa-twitter" />
-                  <p className="d-lg-none d-xl-none">Twitter</p>
-                </NavLink>
-              </NavItem>
-              <NavItem className="p-0">
-                <NavLink
-                  data-placement="bottom"
-                  href="https://www.facebook.com/CreativeTim"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="Like us on Facebook"
-                >
-                  <i className="fab fa-facebook-square" />
-                  <p className="d-lg-none d-xl-none">Facebook</p>
-                </NavLink>
-              </NavItem>
-              <NavItem className="p-0">
-                <NavLink
-                  data-placement="bottom"
-                  href="https://www.instagram.com/CreativeTimOfficial"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="Follow us on Instagram"
-                >
-                  <i className="fab fa-instagram" />
-                  <p className="d-lg-none d-xl-none">Instagram</p>
-                </NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  data-toggle="dropdown"
-                  href="#pablo"
-                  nav
-                  onClick={e => e.preventDefault()}
-                >
-                  <i className="fa fa-cogs d-lg-none d-xl-none" />
-                  Getting started
-                </DropdownToggle>
-                <DropdownMenu className="dropdown-with-icons">
-                  <DropdownItem href="https://demos.creative-tim.com/blk-design-system-react/#/documentation/tutorial">
-                    <i className="tim-icons icon-paper" />
-                    Documentation
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/register-page">
-                    <i className="tim-icons icon-bullet-list-67" />
-                    Register Page
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/landing-page">
-                    <i className="tim-icons icon-image-02" />
-                    Landing Page
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/profile-page">
-                    <i className="tim-icons icon-single-02" />
-                    Profile Page
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <NavItem>
-               <Button
-                 className="nav-link d-none d-lg-block"
-                 color="primary"
-                 target="_blank"
-                 href="https://www.creative-tim.com/product/blk-design-system-pro-react?ref=bdsr-user-archive-index-navbar-upgrade-pro"
-               >
-                 <i className="tim-icons icon-spaceship" /> Upgrade to PRO
-               </Button>
-             </NavItem>
-              <NavItem>
-                <Button
-                  className="nav-link d-none d-lg-block"
-                  color="default"
-                  onClick={this.scrollToDownload}
-                >
-                  <i className="tim-icons icon-cloud-download-93" /> Download
-                </Button>
-              </NavItem>
-            </Nav>
-          </Collapse>
+        <header className="cd-header">
+        <div className="cd-logo"><Link to="#0"><img src={logo} alt="Logo"  style ={{maxHeight : '45px'}}/></Link></div>
+
+		<nav>
+			<ul className="cd-secondary-nav">
+				<li><a href="#0">Log In</a></li>
+				<li><a href="#0">Register</a></li>
+			</ul>
+		</nav> 
+
+		<div class="nav-but-wrap">
+			<div class="menu-icon hover-target">
+				<span class="menu-icon__line menu-icon__line-left"></span>
+				<span class="menu-icon__line"></span>
+				<span class="menu-icon__line menu-icon__line-right"></span>
+			</div>					
+		</div>	
+	</header>
+
+	<nav>
+		<ul className="cd-primary-nav">
+			<li className="cd-label">About us</li>
+
+			<li><a href="#0">The team</a></li>
+			<li><a href="#0">Our services</a></li>
+			<li><a href="#0">Our projects</a></li>
+
+			<li className="cd-label">Work with us</li>
+
+			<li><a href="#0">Start a project</a></li>
+			<li><a href="#0">Join In</a></li>
+			<li><a href="#0">Create an account</a></li>
+
+			<li className="cd-label">Follow us</li>
+			
+			<li className="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+			<li className="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+			<li className="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+			<li className="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+		</ul>
+	</nav>
         </Container>
+        
+
+        
+
       </Navbar>
+
+      
+      
     );
   }
 }
