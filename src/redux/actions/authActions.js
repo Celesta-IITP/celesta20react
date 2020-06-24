@@ -15,7 +15,6 @@ const serverUrl=' http://localhost:4500'
   export const registerUser=(data)=>async (dispatch) =>{
       try{
         console.log("In auth actions")
-      
           dispatch({
             type: USER_LOADING
           });
