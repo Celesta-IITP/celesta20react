@@ -24,6 +24,7 @@ import Footer from "components/Footer/Footer.js";
 
 // sections for this page/view
 import Basics from "views/IndexSections/Basics.js";
+import Loader from "components/Loader/loader.js";
 import Navbars from "views/IndexSections/Navbars.js";
 import Tabs from "views/IndexSections/Tabs.js";
 import Pagination from "views/IndexSections/Pagination.js";
@@ -49,6 +50,7 @@ class Index extends React.Component {
   render() {
     return (
       <>
+      <Loader />
         <IndexNavbar />
         <div className="wrapper bg">
           <Header />
