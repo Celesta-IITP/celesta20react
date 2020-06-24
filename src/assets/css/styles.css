@@ -1,70 +1,73 @@
-@import url('https://fonts.googleapis.com/css?family=Markazi+Text|Raleway');
-.landing-page-container{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
+@import url("https://fonts.googleapis.com/css?family=Markazi+Text|Raleway");
+.landing-page-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 .landing-page-main {
-    position: relative;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-.astronaut{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-    width: 22.5%;
-    height: 30%;
-    transform: translate(-50%, -80%);
-    animation: astroanimate 5s linear infinite;
+.astronaut {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  width: 22.5%;
+  height: 30%;
+  transform: translate(-50%, -80%);
+  animation: astroanimate 5s linear infinite;
 }
 @keyframes astroanimate {
-    0%{
+  0% {
     transform: translate(-50%, -80%);
-    }
-    50%{
+  }
+  50% {
     transform: translate(-50%, -70%);
-    }
-    100%{
+  }
+  100% {
     transform: translate(-50%, -80%);
-    }
+  }
 }
 .parallax-container {
-    display: block;
-    height: 750px;
-    width: 100%;
-    overflow: hidden;
+  display: block;
+  height: 750px;
+  width: 100%;
+  overflow: hidden;
 }
 .parallax-container div {
-    position: absolute;
-    top: 0;
-    background-position: center !important;
-    transform: translateY(0px);
-    height: 750px;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  background-position: center !important;
+  transform: translateY(0px);
+  height: 750px;
+  width: 100%;
+}
+.bg {
+  background-color: #030f33;
 }
 #content {
-    position: relative;
-    background-color: #030f33;
-    color: #ffffff;
-    padding: 100px 0;
+  position: relative;
+  background-color: #030f33;
+  color: #ffffff;
+  padding: 100px 0;
 }
 #content h1 {
-    font-size: 100px;
-    text-align: center;
-    font-family: 'Markazi Text', serif;
+  font-size: 100px;
+  text-align: center;
+  font-family: "Markazi Text", serif;
 }
 #content p {
-    font-size: 18px;
-    font-family: 'Raleway', sans-serif;
-    text-align: center;
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
 }
-@media(max-width: 500px){
-    #top-circle{
+@media (max-width: 500px) {
+  #top-circle {
     display: none;
-    }
+  }
 }
