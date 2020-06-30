@@ -41,11 +41,11 @@ import {
   Row,
   Col,
   UncontrolledTooltip,
-  UncontrolledCarousel
+  UncontrolledCarousel,
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ExamplesNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footer/Footer.js";
 
 let ps = null;
@@ -54,7 +54,7 @@ class ContactUsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabs: 1
+      tabs: 1,
     };
   }
   componentDidMount() {
@@ -79,7 +79,7 @@ class ContactUsPage extends React.Component {
   toggleTabs = (e, stateName, index) => {
     e.preventDefault();
     this.setState({
-      [stateName]: index
+      [stateName]: index,
     });
   };
   render() {
@@ -104,18 +104,24 @@ class ContactUsPage extends React.Component {
                   <h1 className="profile-title text-left">Reach Us At</h1>
                   <h5 className="text-on-back">01</h5>
                   <p className="profile-description">
-                  <h4>Indian Institute of Technology Patna</h4>
-                  <h4>Bihta Patna-801103 (Bihar)</h4><br />
-                  <div className="typography-line"  style={{paddingLeft:"0px"}}>
-                  
-                  <blockquote>
-                    <p className="blockquote blockquote-info">
-                      Aman Deep :- 9931059201<br />
-                      Priyansh Singh Rao :- 8058501770<br />
-                      Roushan Kumar :- 9610098566<br />
-                    </p>
-                  </blockquote>
-                </div>
+                    <h4>Indian Institute of Technology Patna</h4>
+                    <h4>Bihta Patna-801103 (Bihar)</h4>
+                    <br />
+                    <div
+                      className="typography-line"
+                      style={{ paddingLeft: "0px" }}
+                    >
+                      <blockquote>
+                        <p className="blockquote blockquote-info">
+                          Aman Deep :- 9931059201
+                          <br />
+                          Priyansh Singh Rao :- 8058501770
+                          <br />
+                          Roushan Kumar :- 9610098566
+                          <br />
+                        </p>
+                      </blockquote>
+                    </div>
                   </p>
                   <div className="btn-wrapper profile pt-3">
                     <Button
@@ -163,24 +169,27 @@ class ContactUsPage extends React.Component {
                         alt="..."
                         className="img-center img-fluid rounded-circle"
                         src={require("assets/img/iitp.jpg")}
-                        style={{height:"150px"}}
+                        style={{ height: "150px" }}
                       />
                       <h4 className="title">Important Links</h4>
                     </CardHeader>
-                    <CardBody style={{alignSelf:"center"}}>
-                    <Button className="btn-link" color="warning" >
-                      Directions>
-                    </Button><br />
-                    <Button className="btn-link" color="warning" >
-                      Core Comittee>
-                    </Button><br />
-                    <Button className="btn-link" color="warning" >
-                      Accommodation>
-                    </Button><br />
-                    <Button className="btn-link" color="warning">
-                      Bus Routes>
-                    </Button><br />
-                    
+                    <CardBody style={{ alignSelf: "center" }}>
+                      <Button className="btn-link" color="warning">
+                        Directions
+                      </Button>
+                      <br />
+                      <Button className="btn-link" color="warning">
+                        Core Comittee
+                      </Button>
+                      <br />
+                      <Button className="btn-link" color="warning">
+                        Accommodation
+                      </Button>
+                      <br />
+                      <Button className="btn-link" color="warning">
+                        Bus Routes
+                      </Button>
+                      <br />
                     </CardBody>
                   </Card>
                 </Col>

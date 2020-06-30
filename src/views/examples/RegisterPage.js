@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames";
-import { compose } from 'redux';
-import {connect} from "react-redux";
-import {Alert} from "antd";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { Alert } from "antd";
 // reactstrap components
 import {
   Button,
@@ -21,59 +21,58 @@ import {
   InputGroup,
   Container,
   Row,
-  Col
+  Col,
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ExamplesNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import { USER_LOADING } from "redux/actions/types";
-import { registerUser } from "redux/actions/authActions"
-import { clearErrors } from "redux/actions/errorActions"
-import ValidatedLoginForm from "./ValidateLogin"
+import { registerUser } from "redux/actions/authActions";
+import { clearErrors } from "redux/actions/errorActions";
+import ValidatedLoginForm from "./ValidateLogin";
 
 class RegisterPage extends React.Component {
   state = {
     squares1to6: "",
     squares7and8: "",
-    email:"",
-    password:"",
-    name:"",
-    msg:null
+    email: "",
+    password: "",
+    name: "",
+    msg: null,
   };
-  componentDidMount(){
+  componentDidMount() {
     document.body.classList.toggle("register-page");
     document.documentElement.addEventListener("mousemove", this.followCursor);
-    console.log(this.props.isLoading)
+    console.log(this.props.isLoading);
   }
   componentDidUpdate(prevProps) {
     const { error, isAuthenticated } = this.props;
-    const {name,email,password}=this.state
+    const { name, email, password } = this.state;
     if (error !== prevProps.error) {
       if (error.id === "REGISTER_FAIL") {
-        if(!email || !password || !name){
+        if (!email || !password || !name) {
           this.setState({
-            msg:"Please enter all fields"
-          })
+            msg: "Please enter all fields",
+          });
+        } else {
+          this.setState({
+            msg: error.message,
+          });
         }
-        else{this.setState({
-          msg: error.message
-        });
-      }
-      }
-       else {
+      } else {
         this.setState({
-          msg: null
+          msg: null,
         });
       }
     }
-      if (isAuthenticated) {
-        this.toggleModal();
-      }
+    if (isAuthenticated) {
+      this.toggleModal();
+    }
   }
   toggleModal = () => {
     this.props.clearErrors();
-    this.props.history.push('/');
+    this.props.history.push("/");
   };
   componentWillUnmount() {
     document.body.classList.toggle("register-page");
@@ -82,8 +81,8 @@ class RegisterPage extends React.Component {
       this.followCursor
     );
   }
-  
-  followCursor = event => {
+
+  followCursor = (event) => {
     let posX = event.clientX - window.innerWidth / 2;
     let posY = event.clientY - window.innerWidth / 6;
     this.setState({
@@ -98,28 +97,27 @@ class RegisterPage extends React.Component {
         posX * 0.02 +
         "deg) rotateX(" +
         posY * -0.02 +
-        "deg)"
+        "deg)",
     });
   };
- handleCreate=(name,email,password)=>{
-  const user = {
-    name,
-    email,
-    password,
+  handleCreate = (name, email, password) => {
+    const user = {
+      name,
+      email,
+      password,
+    };
+    this.props.registerUser(user);
   };
-  this.props.registerUser(user);
- } 
-submitHandler=e=>{
-  e.preventDefault();
-  const x=this.state.email;
-  const y=this.state.password;
-  const z=this.state.name;
-  this.handleCreate(z,x,y);
-}
+  submitHandler = (e) => {
+    e.preventDefault();
+    const x = this.state.email;
+    const y = this.state.password;
+    const z = this.state.name;
+    this.handleCreate(z, x, y);
+  };
   render() {
-    const {msg} = this.state
+    const { msg } = this.state;
     return (
-      
       <>
         <ExamplesNavbar />
         <div className="wrapper">
@@ -147,45 +145,58 @@ submitHandler=e=>{
                         />
                         <CardTitle tag="h4">Register</CardTitle>
                         <Row>
-                        <Button
-                          className="btn-icon btn-round"
-                          href="#pablo"
-                          target="_blank"
-                          color="neutral"
-                          onClick={e => e.preventDefault()}
-                          style={{marginLeft:"20px"}}
-                        >
-                          <i className={"fab fa-twitter"} />
-                        </Button>
-                        <Button
-                          className="btn-icon btn-round"
-                          href="#pablo"
-                          target="_blank"
-                          color="neutral"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-facebook"} />
-                        </Button>
-                        <Button
-                          className="btn-icon btn-round"
-                          href="#pablo"
-                          target="_blank"
-                          color="neutral"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-google-plus-g"} />
-                        </Button>
+                          <Button
+                            className="btn-icon btn-round"
+                            href="#pablo"
+                            target="_blank"
+                            color="neutral"
+                            onClick={(e) => e.preventDefault()}
+                            style={{ marginLeft: "20px" }}
+                          >
+                            <i className={"fab fa-twitter"} />
+                          </Button>
+                          <Button
+                            className="btn-icon btn-round"
+                            href="#pablo"
+                            target="_blank"
+                            color="neutral"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <i className={"fab fa-facebook"} />
+                          </Button>
+                          <Button
+                            className="btn-icon btn-round"
+                            href="#pablo"
+                            target="_blank"
+                            color="neutral"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <i className={"fab fa-google-plus-g"} />
+                          </Button>
                         </Row>
                       </CardHeader>
                       <div>
-                      {msg ? <h2 style={{fontSize:"25px",color:"black",backgroundImage:"linear-gradient(to bottom right, pink, violet)",textAlign:"center",marginBottom:"30px"}}>{msg}!</h2> : null}
+                        {msg ? (
+                          <h2
+                            style={{
+                              fontSize: "25px",
+                              color: "black",
+                              backgroundImage:
+                                "linear-gradient(to bottom right, pink, violet)",
+                              textAlign: "center",
+                              marginBottom: "30px",
+                            }}
+                          >
+                            {msg}!
+                          </h2>
+                        ) : null}
                       </div>
                       <CardBody>
                         <h6>Or Be Classic..</h6>
                         <Form className="form" onSubmit={this.submitHandler}>
                           <InputGroup
                             className={classnames({
-                              "input-group-focus": this.state.fullNameFocus
+                              "input-group-focus": this.state.fullNameFocus,
                             })}
                           >
                             <InputGroupAddon addonType="prepend">
@@ -196,18 +207,21 @@ submitHandler=e=>{
                             <Input
                               placeholder="Full Name"
                               type="text"
-                              onFocus={e =>
+                              onFocus={(e) =>
                                 this.setState({ fullNameFocus: true })
                               }
-                              onBlur={e =>
+                              onBlur={(e) =>
                                 this.setState({ fullNameFocus: false })
                               }
-                              onChange={(e)=>{this.setState({name:e.target.value}); console.log(this.state.name)}}
+                              onChange={(e) => {
+                                this.setState({ name: e.target.value });
+                                console.log(this.state.name);
+                              }}
                             />
                           </InputGroup>
                           <InputGroup
                             className={classnames({
-                              "input-group-focus": this.state.emailFocus
+                              "input-group-focus": this.state.emailFocus,
                             })}
                           >
                             <InputGroupAddon addonType="prepend">
@@ -218,14 +232,21 @@ submitHandler=e=>{
                             <Input
                               placeholder="Email"
                               type="text"
-                              onFocus={e => this.setState({ emailFocus: true })}
-                              onBlur={e => this.setState({ emailFocus: false })}
-                              onChange={(e)=>{this.setState({email:e.target.value}); console.log(this.state.email)}}
+                              onFocus={(e) =>
+                                this.setState({ emailFocus: true })
+                              }
+                              onBlur={(e) =>
+                                this.setState({ emailFocus: false })
+                              }
+                              onChange={(e) => {
+                                this.setState({ email: e.target.value });
+                                console.log(this.state.email);
+                              }}
                             />
                           </InputGroup>
                           <InputGroup
                             className={classnames({
-                              "input-group-focus": this.state.passwordFocus
+                              "input-group-focus": this.state.passwordFocus,
                             })}
                           >
                             <InputGroupAddon addonType="prepend">
@@ -236,14 +257,15 @@ submitHandler=e=>{
                             <Input
                               placeholder="Password"
                               type="text"
-                              onFocus={e =>
+                              onFocus={(e) =>
                                 this.setState({ passwordFocus: true })
                               }
-                              onBlur={e =>
+                              onBlur={(e) =>
                                 this.setState({ passwordFocus: false })
-                                
                               }
-                              onChange={(e)=>this.setState({password:e.target.value})}
+                              onChange={(e) =>
+                                this.setState({ password: e.target.value })
+                              }
                             />
                           </InputGroup>
                           <FormGroup check className="text-left">
@@ -252,7 +274,7 @@ submitHandler=e=>{
                               <span className="form-check-sign" />I agree to the{" "}
                               <a
                                 href="#pablo"
-                                onClick={e => e.preventDefault()}
+                                onClick={(e) => e.preventDefault()}
                               >
                                 terms and conditions
                               </a>
@@ -262,7 +284,12 @@ submitHandler=e=>{
                         </Form>
                       </CardBody>
                       <CardFooter>
-                        <Button className="btn-round" color="primary" size="lg" onClick={this.submitHandler}>
+                        <Button
+                          className="btn-round"
+                          color="primary"
+                          size="lg"
+                          onClick={this.submitHandler}
+                        >
                           register
                         </Button>
                       </CardFooter>
@@ -309,13 +336,12 @@ submitHandler=e=>{
     );
   }
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
   isLoading: state.auth.isLoading,
   error: state.error,
 });
 
-
-export default compose(
-  connect(mapStateToProps,{registerUser, clearErrors})
-)(RegisterPage);
+export default compose(connect(mapStateToProps, { registerUser, clearErrors }))(
+  RegisterPage
+);

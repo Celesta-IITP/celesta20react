@@ -5,7 +5,6 @@ import "assets/css/nucleo-icons.css";
 import "assets/scss/blk-design-system-react.scss?v=1.1.0";
 import "assets/demo/demo.css";
 
-
 import Index from "views/Index.js";
 import LandingPage from "views/examples/LandingPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
@@ -15,15 +14,17 @@ import Photos from "components/Gallery/gallery.js";
 import SigninPage from "views/examples/SigninPage.js";
 import Sponsors from "components/Sponsors/sponsors.js";
 import Stats from "components/Stats/stats.js";
+import MouseEffect from "components/MouseEffect/mouseEffect";
+import NotFound from "components/NotFound/notFound.js";
+import CA from "components/CA/ca.js";
 
 class App extends React.Component {
- 
   render() {
     return (
-     
       <BrowserRouter>
+        <MouseEffect />
         <Switch>
-          <Route path="/components" render={(props) => <Index {...props} />} />
+          <Route path="/index" render={(props) => <Index {...props} />} />
           <Route
             path="/landing-page"
             render={(props) => <LandingPage {...props} />}
@@ -44,20 +45,12 @@ class App extends React.Component {
             path="/contact-us-page"
             render={(props) => <ContactUsPage {...props} />}
           />
-          <Route
-            path="/gallery"
-            render={(props) => <Photos {...props} />}
-          />
-          <Route
-            path="/sponsors"
-            render={(props) => <Sponsors {...props} />}
-          />
-          <Route
-            path="/stats"
-            render={(props) => <Stats {...props} />}
-          />
-          
-          <Redirect from="/" to="/components" />
+          <Route path="/gallery" render={(props) => <Photos {...props} />} />
+          <Route path="/sponsors" render={(props) => <Sponsors {...props} />} />
+          <Route path="/stats" render={(props) => <Stats {...props} />} />
+          <Route path="/ca" render={(props) => <CA {...props} />} />
+          <Route path="*" component={NotFound} />
+          {/* <Redirect from="/" to="/components" /> */}
         </Switch>
       </BrowserRouter>
     );
