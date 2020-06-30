@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames";
-import { compose } from 'redux';
-import {connect} from "react-redux"
-import {Alert} from "antd";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { Alert } from "antd";
 // reactstrap components
 import {
   Button,
@@ -21,66 +21,63 @@ import {
   InputGroup,
   Container,
   Row,
-  Col
+  Col,
 } from "reactstrap";
-import {loginUser} from "redux/actions/authActions"
-import { clearErrors } from "redux/actions/errorActions"
+import { loginUser } from "redux/actions/authActions";
+import { clearErrors } from "redux/actions/errorActions";
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import ExamplesNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footer/Footer.js";
 
 class SigninPage extends React.Component {
   state = {
     squares1to6: "",
     squares7and8: "",
-    name:"",
-    email:"",
-    password:"",
-    msg:null
+    name: "",
+    email: "",
+    password: "",
+    msg: null,
   };
   componentDidMount() {
     document.body.classList.toggle("register-page");
     document.documentElement.addEventListener("mousemove", this.followCursor);
   }
   componentDidUpdate(prevProps) {
-    console.log(prevProps)
+    console.log(prevProps);
     const { error, isAuthenticated } = this.props;
-    const {email,password}=this.state;
-    console.log(error)
+    const { email, password } = this.state;
+    console.log(error);
     if (error !== prevProps.error) {
       if (error.id === "REGISTER_FAIL") {
-        if(!email || !password){
+        if (!email || !password) {
           this.setState({
-            msg:"Please enter all fields"
-          })
+            msg: "Please enter all fields",
+          });
+        } else {
+          this.setState({
+            msg: error.message,
+          });
         }
-        else{this.setState({
-          msg: error.message
-        });
-      }
-      }
-      /*if(!email || !password){
+      } else {
+        /*if(!email || !password){
         this.setState({
           msg:"Please enter all fields"
         })
-      }*/ else {
+      }*/
         this.setState({
-          msg: null
+          msg: null,
         });
       }
     }
-      if (isAuthenticated) {
-        this.toggleModal();
-      }
-      
-    
+    if (isAuthenticated) {
+      this.toggleModal();
+    }
   }
   toggleModal = () => {
     this.props.clearErrors();
-    this.props.history.push('/sigin-page');
+    this.props.history.push("/sigin-page");
   };
-  
-  
+
   componentWillUnmount() {
     document.body.classList.toggle("register-page");
     document.documentElement.removeEventListener(
@@ -88,7 +85,7 @@ class SigninPage extends React.Component {
       this.followCursor
     );
   }
-  followCursor = event => {
+  followCursor = (event) => {
     let posX = event.clientX - window.innerWidth / 2;
     let posY = event.clientY - window.innerWidth / 6;
     this.setState({
@@ -103,24 +100,24 @@ class SigninPage extends React.Component {
         posX * 0.02 +
         "deg) rotateX(" +
         posY * -0.02 +
-        "deg)"
+        "deg)",
     });
   };
-  handleCreate=(email,password)=>{
+  handleCreate = (email, password) => {
     const user = {
       email,
-      password
+      password,
     };
     this.props.loginUser(user);
-   } 
-  submitHandler=e=>{
+  };
+  submitHandler = (e) => {
     e.preventDefault();
-    const x=this.state.email;
-    const y=this.state.password;
-    this.handleCreate(x,y);
-  }
+    const x = this.state.email;
+    const y = this.state.password;
+    this.handleCreate(x, y);
+  };
   render() {
-    const {msg}=this.state
+    const { msg } = this.state;
     return (
       <>
         <ExamplesNavbar />
@@ -149,45 +146,58 @@ class SigninPage extends React.Component {
                         />
                         <CardTitle tag="h4">Sign In</CardTitle>
                         <Row>
-                        <Button
-                          className="btn-icon btn-round"
-                          href="#pablo"
-                          target="_blank"
-                          color="neutral"
-                          onClick={e => e.preventDefault()}
-                          style={{marginLeft:"20px"}}
-                        >
-                          <i className={"fab fa-twitter"} />
-                        </Button>
-                        <Button
-                          className="btn-icon btn-round"
-                          href="#pablo"
-                          target="_blank"
-                          color="neutral"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-facebook"} />
-                        </Button>
-                        <Button
-                          className="btn-icon btn-round"
-                          href="#pablo"
-                          target="_blank"
-                          color="neutral"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-google-plus-g"} />
-                        </Button>
+                          <Button
+                            className="btn-icon btn-round"
+                            href="#pablo"
+                            target="_blank"
+                            color="neutral"
+                            onClick={(e) => e.preventDefault()}
+                            style={{ marginLeft: "20px" }}
+                          >
+                            <i className={"fab fa-twitter"} />
+                          </Button>
+                          <Button
+                            className="btn-icon btn-round"
+                            href="#pablo"
+                            target="_blank"
+                            color="neutral"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <i className={"fab fa-facebook"} />
+                          </Button>
+                          <Button
+                            className="btn-icon btn-round"
+                            href="#pablo"
+                            target="_blank"
+                            color="neutral"
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            <i className={"fab fa-google-plus-g"} />
+                          </Button>
                         </Row>
                       </CardHeader>
                       <div>
-                        {msg ? <h2 style={{fontSize:"25px",color:"black",backgroundImage:"linear-gradient(to bottom right, pink, violet)",textAlign:"center",marginBottom:"30px"}}>{msg}!</h2> : null}
-                      </div>                     
+                        {msg ? (
+                          <h2
+                            style={{
+                              fontSize: "25px",
+                              color: "black",
+                              backgroundImage:
+                                "linear-gradient(to bottom right, pink, violet)",
+                              textAlign: "center",
+                              marginBottom: "30px",
+                            }}
+                          >
+                            {msg}!
+                          </h2>
+                        ) : null}
+                      </div>
                       <CardBody>
-                      <h6>Or Be Classic..</h6>
+                        <h6>Or Be Classic..</h6>
                         <Form className="form">
                           <InputGroup
                             className={classnames({
-                              "input-group-focus": this.state.fullNameFocus
+                              "input-group-focus": this.state.fullNameFocus,
                             })}
                           >
                             <InputGroupAddon addonType="prepend">
@@ -198,18 +208,21 @@ class SigninPage extends React.Component {
                             <Input
                               placeholder="Full Name"
                               type="text"
-                              onFocus={e =>
+                              onFocus={(e) =>
                                 this.setState({ fullNameFocus: true })
                               }
-                              onBlur={e =>
+                              onBlur={(e) =>
                                 this.setState({ fullNameFocus: false })
                               }
-                              onChange={(e)=>{this.setState({name:e.target.value}); console.log(this.state.name)}}
+                              onChange={(e) => {
+                                this.setState({ name: e.target.value });
+                                console.log(this.state.name);
+                              }}
                             />
                           </InputGroup>
                           <InputGroup
                             className={classnames({
-                              "input-group-focus": this.state.emailFocus
+                              "input-group-focus": this.state.emailFocus,
                             })}
                           >
                             <InputGroupAddon addonType="prepend">
@@ -220,15 +233,21 @@ class SigninPage extends React.Component {
                             <Input
                               placeholder="Email"
                               type="text"
-                              onFocus={e => this.setState({ emailFocus: true })}
-                              onBlur={e => this.setState({ emailFocus: false })}
-                              onChange={(e)=>{this.setState({email:e.target.value}); console.log(this.state.email)}}
+                              onFocus={(e) =>
+                                this.setState({ emailFocus: true })
+                              }
+                              onBlur={(e) =>
+                                this.setState({ emailFocus: false })
+                              }
+                              onChange={(e) => {
+                                this.setState({ email: e.target.value });
+                                console.log(this.state.email);
+                              }}
                             />
-                            
                           </InputGroup>
                           <InputGroup
                             className={classnames({
-                              "input-group-focus": this.state.passwordFocus
+                              "input-group-focus": this.state.passwordFocus,
                             })}
                           >
                             <InputGroupAddon addonType="prepend">
@@ -239,13 +258,15 @@ class SigninPage extends React.Component {
                             <Input
                               placeholder="Password"
                               type="text"
-                              onFocus={e =>
+                              onFocus={(e) =>
                                 this.setState({ passwordFocus: true })
                               }
-                              onBlur={e =>
+                              onBlur={(e) =>
                                 this.setState({ passwordFocus: false })
                               }
-                              onChange={(e)=>{this.setState({password:e.target.value})}}
+                              onChange={(e) => {
+                                this.setState({ password: e.target.value });
+                              }}
                             />
                           </InputGroup>
                           <FormGroup check className="text-left">
@@ -254,7 +275,7 @@ class SigninPage extends React.Component {
                               <span className="form-check-sign" />I agree to the{" "}
                               <a
                                 href="#pablo"
-                                onClick={e => e.preventDefault()}
+                                onClick={(e) => e.preventDefault()}
                               >
                                 terms and conditions
                               </a>
@@ -264,7 +285,13 @@ class SigninPage extends React.Component {
                         </Form>
                       </CardBody>
                       <CardFooter>
-                        <Button className="btn-round" color="primary" size="lg" onClick={this.submitHandler}>>
+                        <Button
+                          className="btn-round"
+                          color="primary"
+                          size="lg"
+                          onClick={this.submitHandler}
+                        >
+                          {" "}
                           Login
                         </Button>
                       </CardFooter>
@@ -312,14 +339,12 @@ class SigninPage extends React.Component {
   }
 }
 
-
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
   isLoading: state.auth.isLoading,
   error: state.error,
 });
 
-
-export default compose(
-  connect(mapStateToProps,{loginUser, clearErrors})
-)(SigninPage);
+export default compose(connect(mapStateToProps, { loginUser, clearErrors }))(
+  SigninPage
+);
