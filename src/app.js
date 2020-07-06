@@ -16,6 +16,14 @@ import Sponsors from "components/Sponsors/sponsors.js";
 import Stats from "components/Stats/stats.js";
 import MouseEffect from "components/MouseEffect/mouseEffect";
 import NotFound from "components/NotFound/notFound.js";
+import Events from "components/Events/Events.js";
+import OnlineEvents from "./components/Explore/Online/online_explore";
+import InformalEvents from "./components/Explore/Informal/info_explore";
+import GamiacsEvents from "./components/Explore/Gamiacs/gamiacs_explore";
+import ManagerialEvents from "./components/Explore/Managerial/man_explore";
+import RoboticsEvents from "./components/Explore/Robotics/robo_explore";
+import SuspEvents from "./components/Explore/SUSP/susp_explore";
+import TechnicalEvents from "./components/Explore/Technical/tech_explore";
 import CA from "components/CA/ca.js";
 
 class App extends React.Component {
@@ -24,10 +32,18 @@ class App extends React.Component {
       <BrowserRouter>
         <MouseEffect />
         <Switch>
-          <Route path="/index" render={(props) => <Index {...props} />} />
+          <Route
+            path="/"
+            exact="true"
+            render={(props) => <Index {...props} />}
+          />
           <Route
             path="/landing-page"
             render={(props) => <LandingPage {...props} />}
+          />
+          <Route
+            path="/events-page"
+            render={(props) => <Events {...props} />}
           />
           <Route
             path="/register-page"
@@ -44,6 +60,41 @@ class App extends React.Component {
           <Route
             path="/contact-us-page"
             render={(props) => <ContactUsPage {...props} />}
+          />
+          <Route
+            path="/events/online_events"
+            exact
+            render={(props) => <OnlineEvents {...props} />}
+          />
+          <Route
+            path="/events/onsite_events"
+            exact
+            render={(props) => <InformalEvents {...props} />}
+          />
+          <Route
+            path="/events/gamiacs_events"
+            exact
+            render={(props) => <GamiacsEvents {...props} />}
+          />
+          <Route
+            path="/events/man_events"
+            exact
+            render={(props) => <ManagerialEvents {...props} />}
+          />
+          <Route
+            path="/events/robo_events"
+            exact
+            render={(props) => <RoboticsEvents {...props} />}
+          />
+          <Route
+            path="/events/susp_events"
+            exact
+            render={(props) => <SuspEvents {...props} />}
+          />
+          <Route
+            path="/events/tech_events"
+            exact
+            render={(props) => <TechnicalEvents {...props} />}
           />
           <Route path="/gallery" render={(props) => <Photos {...props} />} />
           <Route path="/sponsors" render={(props) => <Sponsors {...props} />} />

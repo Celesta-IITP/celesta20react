@@ -81,7 +81,7 @@ class ComponentsNavbar extends React.Component {
         <Container>
           <header className="cd-header">
             <div className="cd-logo">
-              <Link to="/index">
+              <Link to="/">
                 <img src={logo} alt="Logo" style={{ maxHeight: "45px" }} />
               </Link>
             </div>
@@ -116,7 +116,7 @@ class ComponentsNavbar extends React.Component {
               </li>
 
               <li>
-                <Link to="/events">Events</Link>
+                <Link to="/events-page">Events</Link>
               </li>
               <li>
                 <Link to="/gallery">Gallery</Link>
