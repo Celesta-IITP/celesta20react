@@ -6,7 +6,7 @@ class MouseEffect extends Component {
   render() {
     return (
       <>
-        <div>...</div>
+        {/*<div>...</div>*/}
         <MouseParticles
           g={1}
           color="random"

@@ -19,8 +19,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo_3.png";
 
-
-
 // reactstrap components
 import {
   Button,
@@ -37,25 +35,20 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledTooltip
+  UncontrolledTooltip,
 } from "reactstrap";
-
 
 class ComponentsNavbar extends React.Component {
   constructor(props) {
-     
     super(props);
     this.state = {
       collapseOpen: false,
-      color: "navbar-transparent"
+      color: "navbar-transparent",
     };
   }
 
-  
-
   componentDidMount() {
     window.addEventListener("scroll", this.changeColor);
-
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.changeColor);
@@ -66,79 +59,104 @@ class ComponentsNavbar extends React.Component {
       document.body.scrollTop > 99
     ) {
       this.setState({
-        color: "bg-info"
+        color: "bg-info",
       });
     } else if (
       document.documentElement.scrollTop < 100 ||
       document.body.scrollTop < 100
     ) {
       this.setState({
-        color: "navbar-transparent"
+        color: "navbar-transparent",
       });
     }
   };
-  
+
   render() {
     return (
-      
       <Navbar
         className={"fixed-top " + this.state.color}
         color-on-scroll="100"
         expand="lg"
       >
-        
-        
         <Container>
-        <header className="cd-header">
-        <div className="cd-logo"><Link to="#0"><img src={logo} alt="Logo"  style ={{maxHeight : '45px'}}/></Link></div>
+          <header className="cd-header">
+            <div className="cd-logo">
+              <Link to="/index">
+                <img src={logo} alt="Logo" style={{ maxHeight: "45px" }} />
+              </Link>
+            </div>
 
-		<nav>
-			<ul className="cd-secondary-nav">
-				<li><a href="#0">Log In</a></li>
-				<li><a href="#0">Register</a></li>
-			</ul>
-		</nav> 
+            <nav>
+              <ul className="cd-secondary-nav">
+                <li>
+                  <Link to="/signin-page">Login</Link>
+                </li>
+                <li>
+                  <Link to="/register-page">Register</Link>
+                </li>
+              </ul>
+            </nav>
 
-		<div class="nav-but-wrap">
-			<div class="menu-icon hover-target">
-				<span class="menu-icon__line menu-icon__line-left"></span>
-				<span class="menu-icon__line"></span>
-				<span class="menu-icon__line menu-icon__line-right"></span>
-			</div>					
-		</div>	
-	</header>
+            <div class="nav-but-wrap">
+              <div class="menu-icon hover-target">
+                <span class="menu-icon__line menu-icon__line-left"></span>
+                <span class="menu-icon__line"></span>
+                <span class="menu-icon__line menu-icon__line-right"></span>
+              </div>
+            </div>
+          </header>
 
-	<nav>
-		<ul className="cd-primary-nav">
-			<li className="cd-label">About us</li>
+          <nav>
+            <ul className="cd-primary-nav">
+              <li>
+                <Link to="/index">Home</Link>
+              </li>
+              <li>
+                <Link to="/ca">Campus Ambassador</Link>
+              </li>
 
-			<li><a href="#0">The team</a></li>
-			<li><a href="#0">Our services</a></li>
-			<li><a href="#0">Our projects</a></li>
+              <li>
+                <Link to="/events">Events</Link>
+              </li>
+              <li>
+                <Link to="/gallery">Gallery</Link>
+              </li>
+              <li>
+                <Link to="/sponsors">Sponsors</Link>
+              </li>
 
-			<li className="cd-label">Work with us</li>
+              <li>
+                <Link to="/contact-us-page">Contact-Us</Link>
+              </li>
 
-			<li><a href="#0">Start a project</a></li>
-			<li><a href="#0">Join In</a></li>
-			<li><a href="#0">Create an account</a></li>
+              <li>
+                <a href="#0">Start a project</a>
+              </li>
+              <li>
+                <a href="#0">Join In</a>
+              </li>
+              <li>
+                <a href="#0">Create an account</a>
+              </li>
 
-			<li className="cd-label">Follow us</li>
-			
-			<li className="cd-social cd-facebook"><a href="#0">Facebook</a></li>
-			<li className="cd-social cd-instagram"><a href="#0">Instagram</a></li>
-			<li className="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
-			<li className="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-		</ul>
-	</nav>
+              <li className="cd-label">Follow us</li>
+
+              <li className="cd-social cd-facebook">
+                <a href="#0">Facebook</a>
+              </li>
+              <li className="cd-social cd-instagram">
+                <a href="#0">Instagram</a>
+              </li>
+              <li className="cd-social cd-dribbble">
+                <a href="#0">Dribbble</a>
+              </li>
+              <li className="cd-social cd-twitter">
+                <a href="#0">Twitter</a>
+              </li>
+            </ul>
+          </nav>
         </Container>
-        
-
-        
-
       </Navbar>
-
-      
-      
     );
   }
 }
