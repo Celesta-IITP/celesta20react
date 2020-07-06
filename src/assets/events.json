@@ -1,0 +1,315 @@
+{
+	"online":{
+	  "0": {"EventName":"Drone Tussle",
+	   		"rules":"",
+	   		"description":"",
+	   		"eventHead":"",
+	   		"organizers":"",
+	   		"prizes":"",
+	   		"maxMembers": 1,
+	   		"eid": 0
+	  	},
+
+	  "1":{"EventName":"Robo Soccer",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+		"eid": 1
+	  },
+
+	  "2":{"EventName":"NJATH",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 2
+	  },
+
+	  "3":{"EventName":"IPL Auction",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 3
+	  },
+
+	  "4":{"EventName":"Static Rush",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 4
+	  },
+
+	  "5":{"EventName":"House of Cards",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 5
+	  },
+
+	  "6":{"EventName":"Lock and Load",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 6
+	  },
+
+	  "7":{"EventName":"Chem Charades",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 7
+	  }
+	},
+
+	"onsite":{
+	  "0":{"EventName":"Robo Wars",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 2,
+   		"eid": 8
+	  },
+
+	  "1":{"EventName":"Logo Maniac",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 2,
+   		"eid": 9
+	  },
+
+	  "2":{"EventName":"Parliamentary Debate",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 2,
+   		"eid": 10
+	  },
+
+	  "3":{"EventName":"Line Follower",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 2,
+   		"eid": 11
+	  },
+
+	  "4":{"EventName":"Chem-e-Switch",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 5,
+   		"eid": 12
+	  },
+
+	  "5":{"EventName":"Pick, Place and Run",
+		"rules":"",
+		"description":"",
+		"eventHead":"",
+		"organizers":"",
+		"prizes":"",
+		"maxMembers": 5,
+			"eid": 13
+	   },
+
+	   "6":{"EventName":"Research Conclave",
+		"rules":"",
+		"description":"",
+		"eventHead":"",
+		"organizers":"",
+		"prizes":"",
+		"maxMembers": 5,
+			"eid": 14
+	   }
+	},
+
+	"technical":{
+	  "0":{"EventName":"Tech Exhibitions",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 3,
+   		"eid": 15
+	  },
+
+	  "1":{"EventName":"Robo Race",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 3,
+   		"eid": 16
+	  },
+	  
+	  "2":{"EventName":"Robo Wars",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 2,
+   		"eid": 17
+	  },
+	  
+	  "3":{"EventName":"Line Follower",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 18
+	  }
+	},
+
+	"school":{
+	  "0":{"EventName":"Go-kart",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 3,
+   		"eid": 19
+	  },
+
+	  "1":{"EventName":"Body Zorbing",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 20
+	  },
+
+	  "2":{"EventName":"Virtual Reality",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 4,
+   		"eid": 21
+	  },
+
+	  "3":{"EventName":"Rocket Ejector",
+		"rules":"",
+		"description":"",
+		"eventHead":"",
+		"organizers":"",
+		"prizes":"",
+		"maxMembers": 4,
+			"eid": 22
+	   }
+	},
+
+	"managerial":{
+	  "0":{"EventName":"Importance of English Speaking",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 23
+	  },
+
+	  "1":{"EventName":"Photography and Video Editing",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 3,
+   		"eid": 24
+	  }
+	},
+
+	"gamiacs":{
+	  "0":{"EventName":"Guest talk by Mr. Ajit Balakrishnan",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 1,
+   		"eid": 25
+	  },
+
+	  "1":{"EventName":"Guest talk by Mr. Sandeep Jain",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 5,
+   		"eid": 26
+	  }
+	},
+	
+	"robotics":{
+	  "0":{"EventName":"Anubhav Singh Bassi",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 4,
+   		"eid": 27
+	  },
+
+	  "1":{"EventName":"Kumar Varun",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 4,
+   		"eid": 28
+	  },
+
+	  "2":{"EventName":"Base Guns - DJ Night",
+	   "rules":"",
+	   "description":"",
+	   "eventHead":"",
+	   "organizers":"",
+	   "prizes":"",
+	   "maxMembers": 4,
+   		"eid": 29
+	  }
+	}
+}
