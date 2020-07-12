@@ -11,6 +11,7 @@ import RegisterPage from "views/examples/RegisterPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import ContactUsPage from "views/examples/ContactUsPage.js";
 import Photos from "components/Gallery/gallery.js";
+import Pronites from "components/pronites/pronites";
 import SigninPage from "views/examples/SigninPage.js";
 import Sponsors from "components/Sponsors/sponsors.js";
 import Stats from "components/Stats/stats.js";
@@ -97,6 +98,7 @@ class App extends React.Component {
             render={(props) => <TechnicalEvents {...props} />}
           />
           <Route path="/gallery" render={(props) => <Photos {...props} />} />
+          <Route path="/pronites" render={(props) => <Pronites {...props} />} />
           <Route path="/sponsors" render={(props) => <Sponsors {...props} />} />
           <Route path="/stats" render={(props) => <Stats {...props} />} />
           <Route path="/ca" render={(props) => <CA {...props} />} />

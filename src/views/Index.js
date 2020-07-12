@@ -16,6 +16,7 @@
 
 */
 import React from "react";
+import {Link} from 'react-router-dom';
 
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
@@ -58,6 +59,19 @@ class Index extends React.Component {
             <StepWise />
             <Stats />
             <EventSlider />
+            <div className="pro" >
+            <Link to="Pronites">
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                  Visit our Most awaited PRONITES
+                <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 </Link>
+              </div>
           </div>
 
           <Footer />
