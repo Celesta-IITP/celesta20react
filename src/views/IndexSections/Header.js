@@ -56,7 +56,9 @@ class Header extends React.Component {
                   Celesta 2020
                 </h1>
                 <p className="text-white mt-4">
-                Celesta is the annual Techno-Management Fest of IIT Patna. To promote technical and managerial enthusiasm amongst young and bright minds of our nation and to provide a platform to transform their innovative ideas into a meaningful reality.
+                  Black Design comes with three pre-built pages to help you get
+                  started faster. You can change the text and images and you're
+                  good to go.
                 </p>
               </Col>
               <Col lg="6"></Col>

@@ -6,17 +6,17 @@ import logo from "../../assets/img/logo_3.png";
 class Footer extends React.Component {
   render() {
     return (
-      <div  style={{paddingTop : "50px"}}>
+      <div>
       <section className="contact-area" id="contact">
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-6 offset-lg-3">
 						<div className="contact-content text-center">
                 <img src={logo} alt="Logo" />;
-							<p>Celesta is the annual Techno-Management Fest of IIT Patna. To promote technical and managerial enthusiasm amongst young and bright minds of our nation and to provide a platform to transform their innovative ideas into a meaningful reality. </p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum </p>
 							<div className="hr"></div>
-							<h6>Indian Institute of Technology Patna ,<br/> Bihta Patna-801103 (Bihar)</h6>
-							<h6> 8058501770<span>|</span>9610098566</h6>
+							<h6>1120 Lorem ipsum dolor sit amet, KC 179050, Chandigarh.</h6>
+							<h6>+01 2345 6789 12<span>|</span>+01 2345 6789 12</h6>
 							<div className="contact-social">
 								<ul>
 									<li><a className="hover-target" href=""><i className="fab fa-facebook-square"></i></a></li>
