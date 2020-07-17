@@ -48,7 +48,7 @@ $('#number4').jQuerySimpleCounter({end: 246,duration: 2500});
             </div>
             <div className="item wow fadeInUpBig animated animated" data-number="358" style={{visibility:"visible"}}>
                 <i className="fa fa-trophy"></i>
-                <p id="number3" className="number">60+</p>
+                <p id="number3" className="number">300+</p>
                 <span></span>
                 <p style={{fontSize:"25px"}}>EVENTS!</p>
             </div>
