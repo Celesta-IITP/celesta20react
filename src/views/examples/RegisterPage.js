@@ -39,6 +39,9 @@ class RegisterPage extends React.Component {
     email: "",
     password: "",
     name: "",
+    sex: "",
+    college: "",
+    phone: "",
     msg: null,
   };
   componentDidMount() {
@@ -48,10 +51,10 @@ class RegisterPage extends React.Component {
   }
   componentDidUpdate(prevProps) {
     const { error, isAuthenticated } = this.props;
-    const { name, email, password } = this.state;
+    const { name, email, password, college, sex, phone } = this.state;
     if (error !== prevProps.error) {
       if (error.id === "REGISTER_FAIL") {
-        if (!email || !password || !name) {
+        if (!email || !password || !name || !college || !sex || phone) {
           this.setState({
             msg: "Please enter all fields",
           });
@@ -100,20 +103,26 @@ class RegisterPage extends React.Component {
         "deg)",
     });
   };
-  handleCreate = (name, email, password) => {
+  handleCreate = (name, email, password, college, sex, phone) => {
     const user = {
       name,
       email,
       password,
+      college,
+      sex,
+      phone,
     };
     this.props.registerUser(user);
   };
   submitHandler = (e) => {
     e.preventDefault();
-    const x = this.state.email;
-    const y = this.state.password;
-    const z = this.state.name;
-    this.handleCreate(z, x, y);
+    const email = this.state.email;
+    const password = this.state.password;
+    const name = this.state.name;
+    const college = this.state.college;
+    const sex = this.state.sex;
+    const phone = this.state.phone;
+    this.handleCreate(name, email, password, college, sex, phone);
   };
   render() {
     const { msg } = this.state;
@@ -265,6 +274,74 @@ class RegisterPage extends React.Component {
                               }
                               onChange={(e) =>
                                 this.setState({ password: e.target.value })
+                              }
+                            />
+                          </InputGroup>
+                          <InputGroup
+                            className={classnames({
+                              "input-group-focus": this.state.collegeFocus,
+                            })}
+                          >
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="tim-icons icon-bank" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input
+                              placeholder="College"
+                              type="text"
+                              onFocus={(e) =>
+                                this.setState({ collegeFocus: true })
+                              }
+                              onBlur={(e) =>
+                                this.setState({ collegeFocus: false })
+                              }
+                              onChange={(e) =>
+                                this.setState({ college: e.target.value })
+                              }
+                            />
+                          </InputGroup>
+                          <InputGroup
+                            className={classnames({
+                              "input-group-focus": this.state.sexFocus,
+                            })}
+                          >
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="tim-icons icon-badge" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input
+                              placeholder="Sex"
+                              type="text"
+                              onFocus={(e) => this.setState({ sexFocus: true })}
+                              onBlur={(e) => this.setState({ sexFocus: false })}
+                              onChange={(e) =>
+                                this.setState({ sex: e.target.value })
+                              }
+                            />
+                          </InputGroup>
+                          <InputGroup
+                            className={classnames({
+                              "input-group-focus": this.state.phoneFocus,
+                            })}
+                          >
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="tim-icons icon-mobile" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input
+                              placeholder="Phone-no"
+                              type="text"
+                              onFocus={(e) =>
+                                this.setState({ phoneFocus: true })
+                              }
+                              onBlur={(e) =>
+                                this.setState({ phoneFocus: false })
+                              }
+                              onChange={(e) =>
+                                this.setState({ phone: e.target.value })
                               }
                             />
                           </InputGroup>
