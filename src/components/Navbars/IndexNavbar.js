@@ -109,7 +109,7 @@ class ComponentsNavbar extends React.Component {
           <nav>
             <ul className="cd-primary-nav">
               <li>
-                <Link to="/index">Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
                 <Link to="/ca">Campus Ambassador</Link>

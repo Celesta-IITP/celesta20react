@@ -38,6 +38,7 @@ class App extends React.Component {
             exact="true"
             render={(props) => <Index {...props} />}
           />
+
           <Route
             path="/landing-page"
             render={(props) => <LandingPage {...props} />}

@@ -40,6 +40,7 @@ import Header from "views/IndexSections/Header.js";
 import EventSlider from "views/IndexSections/EventSlider.js";
 import StepWise from "views/IndexSections/StepWise.js";
 import Stats from "../components/Stats/stats.js";
+import '../components/Loader/script';
 
 class Index extends React.Component {
   componentDidMount() {
@@ -51,7 +52,7 @@ class Index extends React.Component {
   render() {
     return (
       <>
-      <Loader />
+      <Loader/>
         <IndexNavbar />
         <div className="wrapper bg">
           <Header />

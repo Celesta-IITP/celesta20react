@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 $(window).on("load",function(){
 	   
-    $(".loader-wrapper").fadeOut("slow");
+    setTimeout(function(){ $('.loader-wrapper').fadeOut('slow'); }, 1500);
 
 
  });

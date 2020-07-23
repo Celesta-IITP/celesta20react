@@ -1,7 +1,7 @@
 
 import React from "react";
 import './loader.css';
-import './script';
+
 
 class Loader extends React.Component {
   render() {
