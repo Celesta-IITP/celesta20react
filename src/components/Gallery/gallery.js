@@ -13,7 +13,16 @@ const Photos = () => {
       <Navbar />
       <div>
         <div style={({ padding: "10px" }, { marginTop: "30px" })}>
-          <h1 style={{ textAlign: "center", fontSize: "20px" }}>
+          <h1
+            className="galleryheading"
+            style={{
+              textAlign: "center",
+              fontSize: "50px",
+              color: "purple",
+              marginTop: "50px",
+              marginBottom: "50px",
+            }}
+          >
             Some stunning Memories!
           </h1>
           <div className="zoom">

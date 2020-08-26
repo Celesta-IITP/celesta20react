@@ -50,7 +50,7 @@ class Index extends React.Component {
   render() {
     return (
       <>
-      <Loader />
+        {/*<Loader />*/}
         <IndexNavbar />
         <div className="wrapper bg">
           <Header />
