@@ -28,7 +28,7 @@ class ComponentsNavbar extends React.Component {
     super(props);
     this.state = {
       collapseOpen: false,
-      userInfo: this.props.user,
+      userInfo: this.props.user ? this.props.user : {},
       color: "navbar-transparent",
     };
   }
@@ -81,7 +81,7 @@ class ComponentsNavbar extends React.Component {
               </Link>
             </div>
 
-            {this.state.userInfo._id ? (
+            {Object.keys(this.state.userInfo).length !== 0 ? (
               <nav>
                 <ul className="cd-secondary-nav">
                   <li>
@@ -91,9 +91,7 @@ class ComponentsNavbar extends React.Component {
                   </li>
                   <li>
                     <Button>
-                      <Link to="/register-page">
-                        {this.state.userInfo.name}
-                      </Link>
+                      <Link to="/profile-page">{this.state.userInfo.name}</Link>
                     </Button>
                   </li>
                   {this.state.userInfo.isAdmin ? (
@@ -104,7 +102,7 @@ class ComponentsNavbar extends React.Component {
                     </li>
                   ) : (
                     <Button>
-                      <Link to="/register-page">Events</Link>
+                      <Link to="/events/add">Events</Link>
                     </Button>
                   )}
                 </ul>

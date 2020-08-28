@@ -24,7 +24,7 @@ export default function (state = initialState, action) {
         isLoading: true,
       };
     case USER_LOADED:
-      console.log(action.payload);
+      console.log(action.payload.user);
       return {
         ...state,
         isLoading: false,
@@ -37,7 +37,7 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: false,
         isAuthenticated: true,
-        user: action.payload,
+        user: action.payload.user,
       };
     case LOGIN_FAIL:
     case REGISTER_FAIL:

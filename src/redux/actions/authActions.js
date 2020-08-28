@@ -23,7 +23,7 @@ export const registerUser = (data) => async (dispatch) => {
     console.log("Signup successful");
     dispatch({
       type: USER_LOADED,
-      payload: { user: res.data.newUser, status: res.status },
+      payload: { status: res.status },
     });
   } catch (err) {
     console.log(err);
@@ -65,8 +65,35 @@ export const loginUser = (user) => async (dispatch) => {
     dispatch({ type: REGISTER_FAIL });
   }
 };
-export const logoutUser = () => (dispatch) => {
+export const logoutUser = () => async (dispatch) => {
   dispatch({
     type: LOGOUT_SUCCESS,
   });
+};
+export const uploadPhoto = (token, file) => async (dispatch) => {
+  try {
+    console.log("Inside upload Photo");
+    let imageFormObj = new FormData();
+    imageFormObj.append("profilephoto", file);
+    dispatch({
+      type: USER_LOADING,
+    });
+    const res = await Axios.post(
+      `${serverUrl}/users/profilephoto`,
+      imageFormObj,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
+    console.log(res.data.data);
+    dispatch({
+      type: USER_LOADED,
+      payload: { user: res.data.data, status: res.status },
+    });
+  } catch (e) {
+    console.log(e);
+  }
 };

@@ -25,6 +25,7 @@ import RoboticsEvents from "./components/Explore/Robotics/robo_explore";
 import SuspEvents from "./components/Explore/SUSP/susp_explore";
 import TechnicalEvents from "./components/Explore/Technical/tech_explore";
 import CA from "components/CA/ca.js";
+import AddEvent from "./components/AddEvent/addEvent";
 
 class App extends React.Component {
   render() {
@@ -60,6 +61,11 @@ class App extends React.Component {
           <Route
             path="/contact-us-page"
             render={(props) => <ContactUsPage {...props} />}
+          />
+          <Route
+            path="/events/add"
+            exact
+            render={(props) => <AddEvent {...props} />}
           />
           <Route
             path="/events/online_events"
