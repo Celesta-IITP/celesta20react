@@ -21,7 +21,7 @@ class NotFound extends Component {
               <br /> LOST IN SPACE
             </h1>
             <a
-              href="http://localhost:3000/index"
+              href="http://localhost:3000/"
               className="btn-go-home"
               target="_blank"
             >

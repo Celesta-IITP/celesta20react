@@ -84,27 +84,27 @@ class ComponentsNavbar extends React.Component {
             {Object.keys(this.state.userInfo).length !== 0 ? (
               <nav>
                 <ul className="cd-secondary-nav">
-                  <li>
-                    <Button onClick={this.logoutHandler}>
-                      <Link to="/signin-page">Logout</Link>
+                  {this.state.userInfo.isAdmin ? (
+                    <li>
+                      <Button>
+                        <Link to="/events/add">Add an event!</Link>
+                      </Button>
+                    </li>
+                  ) : (
+                    <Button>
+                      <Link to="/events-page">Events</Link>
                     </Button>
-                  </li>
+                  )}
                   <li>
                     <Button>
                       <Link to="/profile-page">{this.state.userInfo.name}</Link>
                     </Button>
                   </li>
-                  {this.state.userInfo.isAdmin ? (
-                    <li>
-                      <Button>
-                        <Link to="/register-page">Add an event!</Link>
-                      </Button>
-                    </li>
-                  ) : (
-                    <Button>
-                      <Link to="/events/add">Events</Link>
+                  <li>
+                    <Button onClick={this.logoutHandler}>
+                      <Link to="/signin-page">Logout</Link>
                     </Button>
-                  )}
+                  </li>
                 </ul>
               </nav>
             ) : (
@@ -151,15 +151,44 @@ class ComponentsNavbar extends React.Component {
                 <Link to="/contact-us-page">Contact-Us</Link>
               </li>
 
-              <li>
-                <a href="#0">Start a project</a>
-              </li>
-              <li>
-                <a href="#0">Join In</a>
-              </li>
-              <li>
-                <a href="#0">Create an account</a>
-              </li>
+              {Object.keys(this.state.userInfo).length !== 0 ? (
+                <nav>
+                  <ul className="cd-secondary-nav">
+                    <li>
+                      <Button onClick={this.logoutHandler}>
+                        <Link to="/signin-page">Logout</Link>
+                      </Button>
+                    </li>
+                    <li>
+                      <Button>
+                        <Link to="/profile-page">
+                          {this.state.userInfo.name}
+                        </Link>
+                      </Button>
+                    </li>
+                    {this.state.userInfo.isAdmin ? (
+                      <li>
+                        <Button>
+                          <Link to="/events/add">Add an event!</Link>
+                        </Button>
+                      </li>
+                    ) : (
+                      <Button>
+                        <Link to="/events-page">Events</Link>
+                      </Button>
+                    )}
+                  </ul>
+                </nav>
+              ) : (
+                <ul>
+                  <li>
+                    <Link to="/signin-page">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register-page">Register</Link>
+                  </li>
+                </ul>
+              )}
 
               <li className="cd-label">Follow us</li>
 

@@ -43,7 +43,7 @@ export default function (state = initialState, action) {
     case REGISTER_FAIL:
     case LOGOUT_SUCCESS:
     case AUTH_ERROR:
-      localStorage.removeItem("JWT_TOKEN");
+      localStorage.removeItem("token");
       localStorage.removeItem("USER");
       return {
         ...state,

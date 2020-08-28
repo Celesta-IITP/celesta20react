@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <MouseEffect />
+        {/*<MouseEffect />*/}
         <Switch>
           <Route
             path="/"
@@ -52,10 +52,12 @@ class App extends React.Component {
           />
           <Route
             path="/signin-page"
+            exact="true"
             render={(props) => <SigninPage {...props} />}
           />
           <Route
             path="/profile-page"
+            exact="true"
             render={(props) => <ProfilePage {...props} />}
           />
           <Route
@@ -64,7 +66,7 @@ class App extends React.Component {
           />
           <Route
             path="/events/add"
-            exact
+            exact="true"
             render={(props) => <AddEvent {...props} />}
           />
           <Route

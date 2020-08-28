@@ -99,6 +99,7 @@ class ProfilePage extends React.Component {
     console.log(token);
     if (this.state.file) {
       this.props.uploadPhoto(token, this.state.file);
+      this.props.history.push("/");
     }
   }
 
@@ -127,7 +128,12 @@ class ProfilePage extends React.Component {
                         alt="..."
                         className="img-center img-fluid rounded-circle"
                         //src={require("assets/img/mike.jpg")}
-                        src={`http://${this.state.userInfo.profilePhoto}`}
+                        src={
+                          this.state.userInfo.createdAt ===
+                          this.state.userInfo.updatedAt
+                            ? this.state.userInfo.profilePhoto
+                            : `http://${this.state.userInfo.profilePhoto}`
+                        }
                       />
                       <input
                         type="file"
@@ -169,7 +175,7 @@ class ProfilePage extends React.Component {
                 <Col md="6">
                   <Card className="card-plain">
                     <CardHeader>
-                      <h5 className="text-on-back">Details</h5>
+                      <h5 className="text-on-back">Info</h5>
                     </CardHeader>
                     <CardBody>
                       <Form>
