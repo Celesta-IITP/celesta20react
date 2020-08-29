@@ -39,6 +39,8 @@ import Header from "views/IndexSections/Header.js";
 import EventSlider from "views/IndexSections/EventSlider.js";
 import StepWise from "views/IndexSections/StepWise.js";
 import Stats from "../components/Stats/stats.js";
+import Pronites from "../components/Pronites/pronites" ;
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 class Index extends React.Component {
   componentDidMount() {
@@ -59,6 +61,16 @@ class Index extends React.Component {
             <Stats />
             <EventSlider />
           </div>
+
+          <h1 align="center" style={{fontSize: "50px"}}>
+                    PRONITES ... 
+                </h1>              
+
+             <div className="wrapper-prn">
+               <Pronites/>
+             </div>
+
+
 
           <Footer />
         </div>
