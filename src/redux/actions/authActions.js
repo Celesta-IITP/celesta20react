@@ -23,7 +23,7 @@ export const registerUser = (data) => async (dispatch) => {
     console.log("Signup successful");
     dispatch({
       type: USER_LOADED,
-      payload: { user: res.data.newUser, status: res.status },
+      payload: { status: res.status },
     });
   } catch (err) {
     console.log(err);
@@ -39,16 +39,20 @@ export const registerUser = (data) => async (dispatch) => {
 };
 export const loginUser = (user) => async (dispatch) => {
   try {
-    console.log("Inside loginaction");
-    console.log(user);
+    console.log("Inside login action");
+    //console.log(user);
     dispatch({
       type: USER_LOADING,
     });
     const res = await Axios.post(`${serverUrl}/users/signin`, user);
-    console.log(res);
+    console.log(res.data.data.user);
+    const token = res.data.data.token;
+    localStorage.setItem("token", token);
+    const x = localStorage.getItem("token");
+    console.log(x);
     dispatch({
       type: USER_LOADED,
-      payload: { user: res.data.newUser, status: res.status },
+      payload: { user: res.data.data.user, status: res.status },
     });
   } catch (err) {
     dispatch(
@@ -59,5 +63,37 @@ export const loginUser = (user) => async (dispatch) => {
       )
     );
     dispatch({ type: REGISTER_FAIL });
+  }
+};
+export const logoutUser = () => async (dispatch) => {
+  dispatch({
+    type: LOGOUT_SUCCESS,
+  });
+};
+export const uploadPhoto = (token, file) => async (dispatch) => {
+  try {
+    console.log("Inside upload Photo");
+    let imageFormObj = new FormData();
+    imageFormObj.append("profilephoto", file);
+    dispatch({
+      type: USER_LOADING,
+    });
+    const res = await Axios.post(
+      `${serverUrl}/users/profilephoto`,
+      imageFormObj,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
+    console.log(res.data.data);
+    dispatch({
+      type: USER_LOADED,
+      payload: { user: res.data.data, status: res.status },
+    });
+  } catch (e) {
+    console.log(e);
   }
 };

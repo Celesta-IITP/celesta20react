@@ -43,10 +43,10 @@ class SigninPage extends React.Component {
     document.documentElement.addEventListener("mousemove", this.followCursor);
   }
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
+    //console.log(prevProps);
     const { error, isAuthenticated } = this.props;
     const { email, password } = this.state;
-    console.log(error);
+    //console.log(error);
     if (error !== prevProps.error) {
       if (error.id === "REGISTER_FAIL") {
         if (!email || !password) {
@@ -75,7 +75,7 @@ class SigninPage extends React.Component {
   }
   toggleModal = () => {
     this.props.clearErrors();
-    this.props.history.push("/sigin-page");
+    this.props.history.push("/");
   };
 
   componentWillUnmount() {

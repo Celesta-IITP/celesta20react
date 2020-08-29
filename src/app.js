@@ -25,12 +25,13 @@ import RoboticsEvents from "./components/Explore/Robotics/robo_explore";
 import SuspEvents from "./components/Explore/SUSP/susp_explore";
 import TechnicalEvents from "./components/Explore/Technical/tech_explore";
 import CA from "components/CA/ca.js";
+import AddEvent from "./components/AddEvent/addEvent";
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <MouseEffect />
+        {/*<MouseEffect />*/}
         <Switch>
           <Route
             path="/"
@@ -51,15 +52,22 @@ class App extends React.Component {
           />
           <Route
             path="/signin-page"
+            exact="true"
             render={(props) => <SigninPage {...props} />}
           />
           <Route
             path="/profile-page"
+            exact="true"
             render={(props) => <ProfilePage {...props} />}
           />
           <Route
             path="/contact-us-page"
             render={(props) => <ContactUsPage {...props} />}
+          />
+          <Route
+            path="/events/add"
+            exact="true"
+            render={(props) => <AddEvent {...props} />}
           />
           <Route
             path="/events/online_events"

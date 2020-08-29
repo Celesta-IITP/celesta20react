@@ -1,24 +1,9 @@
-/*!
-
-=========================================================
-* BLK Design System React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo_3.png";
-
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { logoutUser } from "../../redux/actions/authActions";
 // reactstrap components
 import {
   Button,
@@ -43,16 +28,23 @@ class ComponentsNavbar extends React.Component {
     super(props);
     this.state = {
       collapseOpen: false,
+      userInfo: this.props.user ? this.props.user : {},
       color: "navbar-transparent",
     };
   }
 
   componentDidMount() {
+    console.log(this.state.userInfo);
     window.addEventListener("scroll", this.changeColor);
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.changeColor);
   }
+  /* shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps);
+    console.log("Props changed");
+    return nextProps.user !== this.state.userInfo;
+  }*/
   changeColor = () => {
     if (
       document.documentElement.scrollTop > 99 ||
@@ -70,7 +62,10 @@ class ComponentsNavbar extends React.Component {
       });
     }
   };
-
+  logoutHandler = (e) => {
+    this.props.logoutUser();
+    /*this.props.history.push("/");*/
+  };
   render() {
     return (
       <Navbar
@@ -86,17 +81,44 @@ class ComponentsNavbar extends React.Component {
               </Link>
             </div>
 
-            <nav>
-              <ul className="cd-secondary-nav">
-                <li>
-                  <Link to="/signin-page">Login</Link>
-                </li>
-                <li>
-                  <Link to="/register-page">Register</Link>
-                </li>
-              </ul>
-            </nav>
-
+            {Object.keys(this.state.userInfo).length !== 0 ? (
+              <nav>
+                <ul className="cd-secondary-nav">
+                  {this.state.userInfo.isAdmin ? (
+                    <li>
+                      <Button>
+                        <Link to="/events/add">Add an event!</Link>
+                      </Button>
+                    </li>
+                  ) : (
+                    <Button>
+                      <Link to="/events-page">Events</Link>
+                    </Button>
+                  )}
+                  <li>
+                    <Button>
+                      <Link to="/profile-page">{this.state.userInfo.name}</Link>
+                    </Button>
+                  </li>
+                  <li>
+                    <Button onClick={this.logoutHandler}>
+                      <Link to="/signin-page">Logout</Link>
+                    </Button>
+                  </li>
+                </ul>
+              </nav>
+            ) : (
+              <nav>
+                <ul className="cd-secondary-nav">
+                  <li>
+                    <Link to="/signin-page">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register-page">Register</Link>
+                  </li>
+                </ul>
+              </nav>
+            )}
             <div class="nav-but-wrap">
               <div class="menu-icon hover-target">
                 <span class="menu-icon__line menu-icon__line-left"></span>
@@ -129,15 +151,44 @@ class ComponentsNavbar extends React.Component {
                 <Link to="/contact-us-page">Contact-Us</Link>
               </li>
 
-              <li>
-                <a href="#0">Start a project</a>
-              </li>
-              <li>
-                <a href="#0">Join In</a>
-              </li>
-              <li>
-                <a href="#0">Create an account</a>
-              </li>
+              {Object.keys(this.state.userInfo).length !== 0 ? (
+                <nav>
+                  <ul className="cd-secondary-nav">
+                    <li>
+                      <Button onClick={this.logoutHandler}>
+                        <Link to="/signin-page">Logout</Link>
+                      </Button>
+                    </li>
+                    <li>
+                      <Button>
+                        <Link to="/profile-page">
+                          {this.state.userInfo.name}
+                        </Link>
+                      </Button>
+                    </li>
+                    {this.state.userInfo.isAdmin ? (
+                      <li>
+                        <Button>
+                          <Link to="/events/add">Add an event!</Link>
+                        </Button>
+                      </li>
+                    ) : (
+                      <Button>
+                        <Link to="/events-page">Events</Link>
+                      </Button>
+                    )}
+                  </ul>
+                </nav>
+              ) : (
+                <ul>
+                  <li>
+                    <Link to="/signin-page">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register-page">Register</Link>
+                  </li>
+                </ul>
+              )}
 
               <li className="cd-label">Follow us</li>
 
@@ -160,5 +211,12 @@ class ComponentsNavbar extends React.Component {
     );
   }
 }
-
-export default ComponentsNavbar;
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+  isLoading: state.auth.isLoading,
+  error: state.error,
+});
+export default compose(connect(mapStateToProps, { logoutUser }))(
+  ComponentsNavbar
+);
+//export default ComponentsNavbar;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Gallery from "react-photo-gallery";
 import Navbar from "../Navbars/IndexNavbar";
 import Footer from "../Footer/Footer.js";
@@ -8,12 +8,25 @@ import "./gallery.css";
 
 /* popout the browser and maximize to see more rows! -> */
 const Photos = () => {
+  //const [x,setX]=useState(0);
   return (
-    <div>
-      <Navbar />
+    <div style={{ backgroundColor: "#05001e" }}>
       <div>
-        <div style={({ padding: "10px" }, { marginTop: "30px" })}>
-          <h1 style={{ textAlign: "center", fontSize: "20px" }}>
+        <Navbar />
+      </div>
+
+      <div style={{ backgroundColor: "#05001e" }}>
+        <div style={{ padding: "10px" }}>
+          <h1
+            className="galleryheading"
+            style={{
+              textAlign: "center",
+              fontSize: "50px",
+              color: "purple",
+              marginTop: "50px",
+              marginBottom: "50px",
+            }}
+          >
             Some stunning Memories!
           </h1>
           <div className="zoom">

@@ -93,17 +93,7 @@ class CA extends Component {
                 </div>
               </div>
             </div>
-            <p
-              className="about-hd"
-              /*style={{ color: "#030f33", fontSize: "20px" }}*/
-            >
-              {" "}
-              The Campus Ambassadors will also be provided with lucrative
-              incentives! All the CAs will be provided with certificates from
-              the ISRO! The top performing CAs with most number of registrations
-              will be provided with not only the certificate but also other
-              exciting merchandise along with a free workshop!
-            </p>
+
             <br />
           </div>
           {/* features ends here */}
