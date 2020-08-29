@@ -76,9 +76,9 @@ class ComponentsNavbar extends React.Component {
         <Container>
           <header className="cd-header">
             <div className="cd-logo">
-              <Link to="/">
+              <NavbarBrand href="/">
                 <img src={logo} alt="Logo" style={{ maxHeight: "45px" }} />
-              </Link>
+              </NavbarBrand>
             </div>
 
             {Object.keys(this.state.userInfo).length !== 0 ? (
@@ -119,37 +119,37 @@ class ComponentsNavbar extends React.Component {
                 </ul>
               </nav>
             )}
-            <div class="nav-but-wrap">
-              <div class="menu-icon hover-target">
-                <span class="menu-icon__line menu-icon__line-left"></span>
-                <span class="menu-icon__line"></span>
-                <span class="menu-icon__line menu-icon__line-right"></span>
+            <div className="nav-but-wrap">
+              <div className="menu-icon hover-target">
+                <span className="menu-icon__line menu-icon__line-left"></span>
+                <span className="menu-icon__line"></span>
+                <span className="menu-icon__line menu-icon__line-right"></span>
               </div>
             </div>
           </header>
 
           <nav>
             <ul className="cd-primary-nav">
-              <li>
-                <Link to="/index">Home</Link>
-              </li>
-              <li>
-                <Link to="/ca">Campus Ambassador</Link>
-              </li>
+              <NavItem>
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/ca">Campus Ambasaddor</NavLink>
+              </NavItem>
 
-              <li>
-                <Link to="/events-page">Events</Link>
-              </li>
-              <li>
-                <Link to="/gallery">Gallery</Link>
-              </li>
-              <li>
-                <Link to="/sponsors">Sponsors</Link>
-              </li>
+              <NavItem>
+                <NavLink href="/events-page">Events</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/gallery">Gallery</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/sponsors">Sponsors</NavLink>
+              </NavItem>
 
-              <li>
-                <Link to="/contact-us-page">Contact-Us</Link>
-              </li>
+              <NavItem>
+                <NavLink href="/contact-us-page">Contact Us</NavLink>
+              </NavItem>
 
               {Object.keys(this.state.userInfo).length !== 0 ? (
                 <nav>
