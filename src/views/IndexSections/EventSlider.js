@@ -30,17 +30,17 @@ import {
 
 const carouselItems = [
     {
-      src: require("assets/img/denys.jpg"),
+      src: "https://static.businessworld.in/article/article_extra_large_image/1566790917_Um2lHl_events.jpg",
       altText: "Slide 1",
       caption: ""
     },
     {
-      src: require("assets/img/fabien-bazanegue.jpg"),
+      src: "https://www.iitp.ac.in/gymkhana/img/events/celesta/a.jpg",
       altText: "Slide 2",
       caption: ""
     },
     {
-      src: require("assets/img/mark-finn.jpg"),
+      src: "https://pbs.twimg.com/media/DpUu723VsAA_zpM.jpg:large",
       altText: "Slide 3",
       caption: ""
     }
@@ -62,7 +62,7 @@ class EventSlider extends React.Component{
                 <br />
                 <br />
                 <h1 align="center">
-                    Events
+                    {/* Events */}
                 </h1>
                 <Row>
                     <Col lg="2">
