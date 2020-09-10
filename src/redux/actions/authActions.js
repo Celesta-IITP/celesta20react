@@ -9,7 +9,7 @@ import {
   REGISTER_FAIL,
   AUTH_ERROR,
 } from "../actions/types";
-import { returnErrors } from "./errorActions";
+import { returnErrors, clearErrors } from "./errorActions";
 const serverUrl = " http://localhost:4500/api";
 
 export const registerUser = (data) => async (dispatch) => {
@@ -56,13 +56,7 @@ export const loginUser = (user) => async (dispatch) => {
     });
   } catch (err) {
     console.log(err.message);
-    dispatch(
-      returnErrors(
-        err.response.data.message,
-        err.response.status,
-        "REGISTER_FAIL"
-      )
-    );
+    dispatch(returnErrors(err.message, err.response.status, "REGISTER_FAIL"));
     dispatch({ type: REGISTER_FAIL });
   }
 };
@@ -106,16 +100,32 @@ export const forgotPassword = (email) => async (dispatch) => {
     };
     console.log(email);
     const res = await Axios.post(`${serverUrl}/users/forgotpwd`, user);
+    dispatch(clearErrors());
     console.log(res);
-  } catch (e) {
-    console.log(e);
+  } catch (err) {
+    console.log(err.response.data.message);
+    dispatch(
+      returnErrors(
+        err.response.data.message,
+        err.response.status,
+        "REGISTER_FAIL"
+      )
+    );
   }
 };
 export const resetPassword = (user) => async (dispatch) => {
   try {
+    console.log(user);
     const res = await Axios.post(`${serverUrl}/users/resetpwd`, user);
+    dispatch(clearErrors());
     console.log(res);
-  } catch (e) {
-    console.log(e);
+  } catch (err) {
+    //console.log(err);
+    console.log(err.response.data.message);
+    //console.log(err.response.status);
+    dispatch(
+      returnErrors(err.response.data.message, err.response.status, "RESET_FAIL")
+    );
+    dispatch({ type: REGISTER_FAIL });
   }
 };

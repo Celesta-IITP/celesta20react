@@ -41,29 +41,27 @@ class ForgotPage extends React.Component {
   componentDidMount() {
     document.body.classList.toggle("register-page");
     document.documentElement.addEventListener("mousemove", this.followCursor);
+    this.setState({
+      msg: null,
+    });
   }
   componentDidUpdate(prevProps) {
     //console.log(prevProps);
     const { error, isAuthenticated } = this.props;
-    const { email, password } = this.state;
+    const { email } = this.state;
     //console.log(error);
     if (error !== prevProps.error) {
       if (error.id === "REGISTER_FAIL") {
-        if (!email || !password) {
+        if (!email) {
           this.setState({
             msg: "Please enter all fields",
           });
-        } else {
+        } else if (error.status === 404) {
           this.setState({
-            msg: error.message,
+            msg: "Please check your email",
           });
         }
       } else {
-        /*if(!email || !password){
-        this.setState({
-          msg:"Please enter all fields"
-        })
-      }*/
         this.setState({
           msg: null,
         });
@@ -103,9 +101,10 @@ class ForgotPage extends React.Component {
         "deg)",
     });
   };
-  handleCreate = (email) => {
-    this.props.forgotPassword(email);
-    this.props.history.push("/reset-page");
+  handleCreate = async (email) => {
+    await this.props.forgotPassword(email);
+    console.log(this.props.error.message);
+    if (this.props.error.message === "") this.props.history.push("/reset-page");
   };
   submitHandler = (e) => {
     e.preventDefault();

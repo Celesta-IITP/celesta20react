@@ -56,7 +56,7 @@ class SigninPage extends React.Component {
           });
         } else {
           this.setState({
-            msg: error.message,
+            msg: "Please enter your correct email and password.",
           });
         }
       } else {
@@ -189,38 +189,13 @@ class SigninPage extends React.Component {
                               marginBottom: "30px",
                             }}
                           >
-                            {msg}!
+                            {msg}
                           </h2>
                         ) : null}
                       </div>
                       <CardBody>
                         <h6>Or Be Classic..</h6>
                         <Form className="form">
-                          <InputGroup
-                            className={classnames({
-                              "input-group-focus": this.state.fullNameFocus,
-                            })}
-                          >
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="tim-icons icon-single-02" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                              placeholder="Full Name"
-                              type="text"
-                              onFocus={(e) =>
-                                this.setState({ fullNameFocus: true })
-                              }
-                              onBlur={(e) =>
-                                this.setState({ fullNameFocus: false })
-                              }
-                              onChange={(e) => {
-                                this.setState({ name: e.target.value });
-                                console.log(this.state.name);
-                              }}
-                            />
-                          </InputGroup>
                           <InputGroup
                             className={classnames({
                               "input-group-focus": this.state.emailFocus,
