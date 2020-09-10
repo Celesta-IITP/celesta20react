@@ -55,6 +55,7 @@ export const loginUser = (user) => async (dispatch) => {
       payload: { user: res.data.data.user, status: res.status },
     });
   } catch (err) {
+    console.log(err.message);
     dispatch(
       returnErrors(
         err.response.data.message,
@@ -93,6 +94,27 @@ export const uploadPhoto = (token, file) => async (dispatch) => {
       type: USER_LOADED,
       payload: { user: res.data.data, status: res.status },
     });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const forgotPassword = (email) => async (dispatch) => {
+  try {
+    const user = {
+      email,
+    };
+    console.log(email);
+    const res = await Axios.post(`${serverUrl}/users/forgotpwd`, user);
+    console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
+};
+export const resetPassword = (user) => async (dispatch) => {
+  try {
+    const res = await Axios.post(`${serverUrl}/users/resetpwd`, user);
+    console.log(res);
   } catch (e) {
     console.log(e);
   }

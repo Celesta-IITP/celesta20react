@@ -8,6 +8,8 @@ import "assets/demo/demo.css";
 import Index from "views/Index.js";
 import LandingPage from "views/examples/LandingPage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
+import ForgotPage from "views/examples/ForgotPassword.js";
+import ResetPage from "views/examples/ResetPassword.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import ContactUsPage from "views/examples/ContactUsPage.js";
 import Photos from "components/Gallery/gallery.js";
@@ -49,6 +51,14 @@ class App extends React.Component {
           <Route
             path="/register-page"
             render={(props) => <RegisterPage {...props} />}
+          />
+          <Route
+            path="/forgot-page"
+            render={(props) => <ForgotPage {...props} />}
+          />
+          <Route
+            path="/reset-page"
+            render={(props) => <ResetPage {...props} />}
           />
           <Route
             path="/signin-page"

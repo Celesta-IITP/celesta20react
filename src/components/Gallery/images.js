@@ -76,6 +76,8 @@ export const photos = [
   },
   {
     src: require("../../assets/img/lf.jpg"),
+    //src:
+    //"https://www.facebook.com/CelestaIITP/photos/a.3524289940919656/3524291910919459",
     width: 1000,
     height: 1000,
   },

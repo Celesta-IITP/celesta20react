@@ -76,9 +76,9 @@ class ComponentsNavbar extends React.Component {
         <Container>
           <header className="cd-header">
             <div className="cd-logo">
-              <NavbarBrand href="/">
+              <NavLink to="/">
                 <img src={logo} alt="Logo" style={{ maxHeight: "45px" }} />
-              </NavbarBrand>
+              </NavLink>
             </div>
 
             {Object.keys(this.state.userInfo).length !== 0 ? (
@@ -110,12 +110,12 @@ class ComponentsNavbar extends React.Component {
             ) : (
               <nav>
                 <ul className="cd-secondary-nav">
-                  <li>
-                    <Link to="/signin-page">Login</Link>
-                  </li>
-                  <li>
-                    <Link to="/register-page">Register</Link>
-                  </li>
+                  <NavItem>
+                    <NavLink href="/signin-page">Login</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/register-page">Register</NavLink>
+                  </NavItem>
                 </ul>
               </nav>
             )}
@@ -181,12 +181,12 @@ class ComponentsNavbar extends React.Component {
                 </nav>
               ) : (
                 <ul>
-                  <li>
-                    <Link to="/signin-page">Login</Link>
-                  </li>
-                  <li>
-                    <Link to="/register-page">Register</Link>
-                  </li>
+                  <NavItem>
+                    <NavLink href="/signin-page">Login</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/register-page">Register</NavLink>
+                  </NavItem>
                 </ul>
               )}
 
