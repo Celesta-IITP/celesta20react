@@ -24,19 +24,21 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { loginUser } from "redux/actions/authActions";
+import { loginUser, resetPassword } from "redux/actions/authActions";
 import { clearErrors } from "redux/actions/errorActions";
 // core components
 import ExamplesNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footer/Footer.js";
+import { returnErrors } from "redux/actions/errorActions";
 
-class SigninPage extends React.Component {
+class ResetPage extends React.Component {
   state = {
     squares1to6: "",
     squares7and8: "",
-    name: "",
+    code: "",
     email: "",
     password: "",
+    confirmPassword: "",
     msg: null,
   };
   componentDidMount() {
@@ -46,25 +48,28 @@ class SigninPage extends React.Component {
   componentDidUpdate(prevProps) {
     //console.log(prevProps);
     const { error, isAuthenticated } = this.props;
-    const { email, password } = this.state;
+    const { email, password, code, confirmPassword } = this.state;
     //console.log(error);
     if (error !== prevProps.error) {
-      if (error.id === "REGISTER_FAIL") {
-        if (!email || !password) {
+      if (error.id === "RESET_FAIL") {
+        if (!email || !password || !code || !confirmPassword) {
           this.setState({
             msg: "Please enter all fields",
           });
-        } else {
+        } else if (error.status === 401 || error.status === 407) {
           this.setState({
-            msg: "Please enter your correct email and password.",
+            msg: "Please enter correct code.",
+          });
+        } else if (error.status === 403) {
+          this.setState({
+            msg: "Passwords doesn't match",
+          });
+        } else if (error.status === 404) {
+          this.setState({
+            msg: "Please enter correct email",
           });
         }
       } else {
-        /*if(!email || !password){
-        this.setState({
-          msg:"Please enter all fields"
-        })
-      }*/
         this.setState({
           msg: null,
         });
@@ -104,18 +109,30 @@ class SigninPage extends React.Component {
         "deg)",
     });
   };
-  handleCreate = (email, password) => {
-    const user = {
-      email,
-      password,
-    };
-    this.props.loginUser(user);
+  handleCreate = async (email, password, confirmPassword, code) => {
+    if (!email || !password || !code || !confirmPassword) {
+      console.log("hello");
+      await this.props.returnErrors("empty details", "404", "RESET_FAIL");
+    } else {
+      const user = {
+        email,
+        password,
+        confirmPassword,
+        code,
+      };
+      await this.props.resetPassword(user);
+      console.log(this.props.error.message);
+      if (this.props.error.message === "") this.props.history.push("/");
+    }
   };
   submitHandler = (e) => {
     e.preventDefault();
     const x = this.state.email;
     const y = this.state.password;
-    this.handleCreate(x, y);
+    const z = this.state.confirmPassword;
+    const a = this.state.code;
+
+    this.handleCreate(x, y, z, a);
   };
   render() {
     const { msg } = this.state;
@@ -145,7 +162,7 @@ class SigninPage extends React.Component {
                           alt="..."
                           src={require("assets/img/square-purple-1.png")}
                         />
-                        <CardTitle tag="h4">Sign In</CardTitle>
+                        <CardTitle tag="h2">Reset!</CardTitle>
                         <Row>
                           <Button
                             className="btn-icon btn-round"
@@ -189,13 +206,38 @@ class SigninPage extends React.Component {
                               marginBottom: "30px",
                             }}
                           >
-                            {msg}
+                            {msg}!
                           </h2>
                         ) : null}
                       </div>
                       <CardBody>
                         <h6>Or Be Classic..</h6>
                         <Form className="form">
+                          <InputGroup
+                            className={classnames({
+                              "input-group-focus": this.state.fullNameFocus,
+                            })}
+                          >
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="tim-icons icon-single-02" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input
+                              placeholder="Code which was sent to your registered mail!"
+                              type="text"
+                              onFocus={(e) =>
+                                this.setState({ fullNameFocus: true })
+                              }
+                              onBlur={(e) =>
+                                this.setState({ fullNameFocus: false })
+                              }
+                              onChange={(e) => {
+                                this.setState({ code: e.target.value });
+                                console.log(this.state.code);
+                              }}
+                            />
+                          </InputGroup>
                           <InputGroup
                             className={classnames({
                               "input-group-focus": this.state.emailFocus,
@@ -245,19 +287,33 @@ class SigninPage extends React.Component {
                               }}
                             />
                           </InputGroup>
-                          <FormGroup check className="text-left">
-                            <Label check>
-                              <Input type="checkbox" />
-                              <span className="form-check-sign" />I agree to the{" "}
-                              <a
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                              >
-                                terms and conditions
-                              </a>
-                              .
-                            </Label>
-                          </FormGroup>
+                          <InputGroup
+                            className={classnames({
+                              "input-group-focus": this.state
+                                .confirmPasswordFocus,
+                            })}
+                          >
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="tim-icons icon-lock-circle" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input
+                              placeholder="Confirm Password"
+                              type="text"
+                              onFocus={(e) =>
+                                this.setState({ confirmPasswordFocus: true })
+                              }
+                              onBlur={(e) =>
+                                this.setState({ confirmPasswordFocus: false })
+                              }
+                              onChange={(e) => {
+                                this.setState({
+                                  confirmPassword: e.target.value,
+                                });
+                              }}
+                            />
+                          </InputGroup>
                         </Form>
                       </CardBody>
                       <CardFooter>
@@ -268,17 +324,8 @@ class SigninPage extends React.Component {
                           onClick={this.submitHandler}
                         >
                           {" "}
-                          Login
+                          Reset Password
                         </Button>
-                        <Link to="/forgot-page">
-                          <Button
-                            className="btn-round"
-                            color="primary"
-                            size="lg"
-                          >
-                            Forgot Password?
-                          </Button>
-                        </Link>
                       </CardFooter>
                     </Card>
                   </Col>
@@ -330,6 +377,6 @@ const mapStateToProps = (state) => ({
   error: state.error,
 });
 
-export default compose(connect(mapStateToProps, { loginUser, clearErrors }))(
-  SigninPage
-);
+export default compose(
+  connect(mapStateToProps, { loginUser, returnErrors, resetPassword })
+)(ResetPage);

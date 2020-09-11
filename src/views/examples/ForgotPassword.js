@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import classnames from "classnames";
 import { compose } from "redux";
 import { connect } from "react-redux";
@@ -24,13 +23,13 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { loginUser } from "redux/actions/authActions";
+import { loginUser, forgotPassword } from "redux/actions/authActions";
 import { clearErrors } from "redux/actions/errorActions";
 // core components
 import ExamplesNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footer/Footer.js";
 
-class SigninPage extends React.Component {
+class ForgotPage extends React.Component {
   state = {
     squares1to6: "",
     squares7and8: "",
@@ -42,29 +41,27 @@ class SigninPage extends React.Component {
   componentDidMount() {
     document.body.classList.toggle("register-page");
     document.documentElement.addEventListener("mousemove", this.followCursor);
+    this.setState({
+      msg: null,
+    });
   }
   componentDidUpdate(prevProps) {
     //console.log(prevProps);
     const { error, isAuthenticated } = this.props;
-    const { email, password } = this.state;
+    const { email } = this.state;
     //console.log(error);
     if (error !== prevProps.error) {
       if (error.id === "REGISTER_FAIL") {
-        if (!email || !password) {
+        if (!email) {
           this.setState({
             msg: "Please enter all fields",
           });
-        } else {
+        } else if (error.status === 404) {
           this.setState({
-            msg: "Please enter your correct email and password.",
+            msg: "Please check your email",
           });
         }
       } else {
-        /*if(!email || !password){
-        this.setState({
-          msg:"Please enter all fields"
-        })
-      }*/
         this.setState({
           msg: null,
         });
@@ -104,18 +101,15 @@ class SigninPage extends React.Component {
         "deg)",
     });
   };
-  handleCreate = (email, password) => {
-    const user = {
-      email,
-      password,
-    };
-    this.props.loginUser(user);
+  handleCreate = async (email) => {
+    await this.props.forgotPassword(email);
+    console.log(this.props.error.message);
+    if (this.props.error.message === "") this.props.history.push("/reset-page");
   };
   submitHandler = (e) => {
     e.preventDefault();
     const x = this.state.email;
-    const y = this.state.password;
-    this.handleCreate(x, y);
+    this.handleCreate(x);
   };
   render() {
     const { msg } = this.state;
@@ -145,7 +139,7 @@ class SigninPage extends React.Component {
                           alt="..."
                           src={require("assets/img/square-purple-1.png")}
                         />
-                        <CardTitle tag="h4">Sign In</CardTitle>
+                        <CardTitle tag="h4">Forgot?</CardTitle>
                         <Row>
                           <Button
                             className="btn-icon btn-round"
@@ -189,12 +183,14 @@ class SigninPage extends React.Component {
                               marginBottom: "30px",
                             }}
                           >
-                            {msg}
+                            {msg}!
                           </h2>
                         ) : null}
                       </div>
                       <CardBody>
-                        <h6>Or Be Classic..</h6>
+                        <h6 style={{ marginBottom: "30px" }}>
+                          Or Be Classic....
+                        </h6>
                         <Form className="form">
                           <InputGroup
                             className={classnames({
@@ -217,47 +213,9 @@ class SigninPage extends React.Component {
                               }
                               onChange={(e) => {
                                 this.setState({ email: e.target.value });
-                                console.log(this.state.email);
                               }}
                             />
                           </InputGroup>
-                          <InputGroup
-                            className={classnames({
-                              "input-group-focus": this.state.passwordFocus,
-                            })}
-                          >
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="tim-icons icon-lock-circle" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                              placeholder="Password"
-                              type="text"
-                              onFocus={(e) =>
-                                this.setState({ passwordFocus: true })
-                              }
-                              onBlur={(e) =>
-                                this.setState({ passwordFocus: false })
-                              }
-                              onChange={(e) => {
-                                this.setState({ password: e.target.value });
-                              }}
-                            />
-                          </InputGroup>
-                          <FormGroup check className="text-left">
-                            <Label check>
-                              <Input type="checkbox" />
-                              <span className="form-check-sign" />I agree to the{" "}
-                              <a
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                              >
-                                terms and conditions
-                              </a>
-                              .
-                            </Label>
-                          </FormGroup>
                         </Form>
                       </CardBody>
                       <CardFooter>
@@ -268,17 +226,8 @@ class SigninPage extends React.Component {
                           onClick={this.submitHandler}
                         >
                           {" "}
-                          Login
+                          Reset Password!
                         </Button>
-                        <Link to="/forgot-page">
-                          <Button
-                            className="btn-round"
-                            color="primary"
-                            size="lg"
-                          >
-                            Forgot Password?
-                          </Button>
-                        </Link>
                       </CardFooter>
                     </Card>
                   </Col>
@@ -330,6 +279,6 @@ const mapStateToProps = (state) => ({
   error: state.error,
 });
 
-export default compose(connect(mapStateToProps, { loginUser, clearErrors }))(
-  SigninPage
-);
+export default compose(
+  connect(mapStateToProps, { loginUser, clearErrors, forgotPassword })
+)(ForgotPage);
