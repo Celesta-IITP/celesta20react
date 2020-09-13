@@ -45,6 +45,35 @@ class Header extends React.Component {
             <div style={{ background: `url(${img4})` }}></div>
             <div style={{ background: `url(${img5})` }} id="top-circle"></div>
             <div style={{ background: `url(${img6})` }}></div>
+
+            <img
+              className="object_astronaut"
+              src="http://salehriaz.com/404Page/img/astronaut.svg"
+              width="100px"
+              style={{ top: "20%", right: "10%", position: "absolute" }}
+            />
+
+            <div className="glowing_stars">
+              <div className="star" />
+              <div className="star" />
+              <div className="star" />
+              <div className="star" />
+              <div className="star" />
+            </div>
+            <div className="earth-moon">
+              <img
+                className="object_earth"
+                src="http://salehriaz.com/404Page/img/earth.svg"
+                width="100px"
+              />
+            </div>
+            <div>
+              <img
+                className="object_rocket"
+                src="http://salehriaz.com/404Page/img/rocket.svg"
+                width="40px"
+              />
+            </div>
           </div>
         </div>
 
@@ -56,7 +85,10 @@ class Header extends React.Component {
                   Celesta 2020
                 </h1>
                 <p className="text-white mt-4">
-                Celesta is the annual Techno-Management Fest of IIT Patna. To promote technical and managerial enthusiasm amongst young and bright minds of our nation and to provide a platform to transform their innovative ideas into a meaningful reality.
+                  Celesta is the annual Techno-Management Fest of IIT Patna. To
+                  promote technical and managerial enthusiasm amongst young and
+                  bright minds of our nation and to provide a platform to
+                  transform their innovative ideas into a meaningful reality.
                 </p>
               </Col>
               <Col lg="6"></Col>

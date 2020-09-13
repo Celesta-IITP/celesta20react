@@ -44,6 +44,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 class Index extends React.Component {
   componentDidMount() {
+    const token = localStorage.getItem("token");
+    console.log(token);
+    if (token) {
+    }
     document.body.classList.toggle("index-page");
   }
   componentWillUnmount() {

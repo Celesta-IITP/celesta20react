@@ -76,9 +76,9 @@ class ComponentsNavbar extends React.Component {
         <Container>
           <header className="cd-header">
             <div className="cd-logo">
-              <NavLink to="/">
+              <Link to="/">
                 <img src={logo} alt="Logo" style={{ maxHeight: "45px" }} />
-              </NavLink>
+              </Link>
             </div>
 
             {Object.keys(this.state.userInfo).length !== 0 ? (
