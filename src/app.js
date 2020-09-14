@@ -28,6 +28,7 @@ import SuspEvents from "./components/Explore/SUSP/susp_explore";
 import TechnicalEvents from "./components/Explore/Technical/tech_explore";
 import CA from "components/CA/ca.js";
 import AddEvent from "./components/AddEvent/addEvent";
+import Teams from "./components/Team/team";
 
 class App extends React.Component {
   render() {
@@ -69,6 +70,10 @@ class App extends React.Component {
             path="/profile-page"
             exact="true"
             render={(props) => <ProfilePage {...props} />}
+          />
+          <Route
+            path="/Team"
+            render={(props) => <Teams {...props} />}
           />
           <Route
             path="/contact-us-page"
