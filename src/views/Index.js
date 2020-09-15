@@ -54,11 +54,6 @@ class Index extends React.Component {
         <IndexNavbar />
         <div className="wrapper bg">
           <Header />
-          <div className="main">
-            <StepWise />
-            <Stats />
-            <EventSlider />
-          </div>
 
           <h1 align="center" style={{ fontSize: "50px" }}>
             PRONITES ...
@@ -66,6 +61,11 @@ class Index extends React.Component {
 
           <div className="wrapper-prn">
             <Pronites />
+          </div>
+          <div className="main">
+            <StepWise />
+            <Stats />
+            <EventSlider />
           </div>
 
           <Footer />
