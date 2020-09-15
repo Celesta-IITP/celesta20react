@@ -35,23 +35,13 @@ class ComponentsNavbar extends React.Component {
   }
 
   componentDidMount() {
-    const token = localStorage.getItem("token");
-    console.log("second");
-    console.log(token);
-    if (token) {
-      //this.props.refreshPage(JSON.parse(localStorage.getItem("user")));
-    }
     console.log(this.state.userInfo);
     window.addEventListener("scroll", this.changeColor);
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.changeColor);
   }
-  /* shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps);
-    console.log("Props changed");
-    return nextProps.user !== this.state.userInfo;
-  }*/
+
   changeColor = () => {
     if (
       document.documentElement.scrollTop > 99 ||
@@ -170,19 +160,19 @@ class ComponentsNavbar extends React.Component {
 
               {Object.keys(this.state.userInfo).length !== 0 ? (
                 <nav>
+                  <ul>
+                    <NavItem>
+                      <Link to="/signin-page" onClick={this.logoutHandler}>
+                        Logout
+                      </Link>
+                    </NavItem>
+                    <NavItem>
+                      <NavLink to="/profile-page">
+                        {this.state.userInfo.name}
+                      </NavLink>
+                    </NavItem>
+                  </ul>
                   <ul className="cd-secondary-nav">
-                    <li>
-                      <Button onClick={this.logoutHandler}>
-                        <Link to="/signin-page">Logout</Link>
-                      </Button>
-                    </li>
-                    <li>
-                      <Button>
-                        <Link to="/profile-page">
-                          {this.state.userInfo.name}
-                        </Link>
-                      </Button>
-                    </li>
                     {this.state.userInfo.isAdmin ? (
                       <li>
                         <Button>
