@@ -30,17 +30,17 @@ import {
 
 const carouselItems = [
     {
-      src: "https://static.businessworld.in/article/article_extra_large_image/1566790917_Um2lHl_events.jpg",
+      src: require('../../assets/img/homeassets/1566790917_Um2lHl_events.jpg'),
       altText: "Slide 1",
       caption: ""
     },
     {
-      src: "https://www.iitp.ac.in/gymkhana/img/events/celesta/a.jpg",
+      src: require('../../assets/img/homeassets/a.jpg'),
       altText: "Slide 2",
       caption: ""
     },
     {
-      src: "https://pbs.twimg.com/media/DpUu723VsAA_zpM.jpg:large",
+      src: require('../../assets/img/homeassets/DpUu723VsAA_zpM (1).jpg_large'),
       altText: "Slide 3",
       caption: ""
     }

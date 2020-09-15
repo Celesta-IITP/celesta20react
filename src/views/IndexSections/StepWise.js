@@ -25,22 +25,22 @@ import {
 } from "reactstrap";
 
 const carouselItems = [
-  {
+  { 
     src:
-      "https://static.dribbble.com/users/5462144/screenshots/11961113/media/4841dad66f05d4e477b729b2ff59a19e.jpg",
+    require('../../assets/img/homeassets/4841dad66f05d4e477b729b2ff59a19e.webp'),
     altText: "Slide 1",
-    caption: "Big City Life, United States",
+    caption: "Celesta",
   },
   {
     src:
-      "https://www.startus.cc/sites/default/files/styles/company_profile_gallery_image/public/company-profile-gallery/whatsapp_image_2019-12-10_at_15.51.14.jpeg?itok=zyDIyTXm",
+    require('../../assets/img/homeassets/whatsapp_image_2019-12-10_at_15.51.14.jpeg'),
     altText: "Slide 2",
-    caption: "Somewhere Beyond, United States",
+    caption: "Events",
   },
   {
-    src: "https://pbs.twimg.com/media/DpUu723VsAA_zpM.jpg:large",
+    src: require('../../assets/img/homeassets/DpUu723VsAA_zpM.jpg_large'),
     altText: "Slide 3",
-    caption: "Stocks, United States",
+    caption: "Events",
   },
 ];
 
@@ -114,7 +114,7 @@ class StepWise extends React.Component {
             <Col lg="6">
               <div className="img1">
                 <img
-                  src="https://scontent.fymy1-2.fna.fbcdn.net/v/t1.0-9/s720x720/101978522_3872924689389511_4004849801412739072_o.jpg?_nc_cat=110&_nc_sid=110474&_nc_eui2=AeEXr0cW4bXjRFxI-RrAL8GvRBEGVoeD7J9EEQZWh4Psn5AA47NMmUJPYV2OVsZc5dY&_nc_ohc=NVTwC6tToNgAX92yM8i&_nc_ht=scontent.fymy1-2.fna&_nc_tp=7&oh=032bcdb75bfb8087fc3cc18ab1ec9191&oe=5F4A6300"
+                  src={require('../../assets/img/homeassets/119210264_4193612400654070_2709213598359851591_o.jpg')}
                   rounded
                 />
               </div>{" "}

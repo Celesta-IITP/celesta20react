@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {EventsFunctions} from './EventsFunctions'
 import './Events.css';
+import Loader from "../Loader/loader";
+import IndexNavbar from "../Navbars/IndexNavbar";
 
 class Events extends Component {
 
@@ -18,6 +20,13 @@ class Events extends Component {
   render() {
     return (
 	   	<div className='demo-cont'>
+        <Loader />
+        <IndexNavbar style={{backgroundColor: "black"}} />
+		{/* <br/>
+		<br/>
+		<br/>
+		<br/>		 */}
+
 		  	<div className="fnc-slider example-slider">
 		    	<div className="fnc-slider__slides">
 		      <div className="fnc-slide m--blend-green m--active-slide">
