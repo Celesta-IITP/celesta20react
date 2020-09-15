@@ -40,7 +40,7 @@ export const registerUser = (data) => async (dispatch) => {
 export const loginUser = (user) => async (dispatch) => {
   try {
     console.log("Inside login action");
-    //console.log(user);
+
     dispatch({
       type: USER_LOADING,
     });
@@ -48,7 +48,8 @@ export const loginUser = (user) => async (dispatch) => {
     console.log(res.data.data.user);
     const token = res.data.data.token;
     localStorage.setItem("token", token);
-    const x = localStorage.getItem("token");
+    localStorage.setItem("user", JSON.stringify(res.data.data.user));
+    const x = JSON.parse(localStorage.getItem("user"));
     console.log(x);
     dispatch({
       type: USER_LOADED,
@@ -120,12 +121,21 @@ export const resetPassword = (user) => async (dispatch) => {
     dispatch(clearErrors());
     console.log(res);
   } catch (err) {
-    //console.log(err);
-    console.log(err.response.data.message);
-    //console.log(err.response.status);
+    //console.log(err.response.data.message);
+
     dispatch(
       returnErrors(err.response.data.message, err.response.status, "RESET_FAIL")
     );
-    dispatch({ type: REGISTER_FAIL });
+  }
+};
+export const refreshPage = (user) => async (dispatch) => {
+  try {
+    console.log(user);
+    dispatch({
+      type: USER_LOADED,
+      payload: { user: user },
+    });
+  } catch (e) {
+    console.log(e);
   }
 };
