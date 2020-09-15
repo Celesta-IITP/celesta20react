@@ -29,6 +29,7 @@ import TechnicalEvents from "./components/Explore/Technical/tech_explore";
 import CA from "components/CA/ca.js";
 import AddEvent from "./components/AddEvent/addEvent";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Teams from "./components/Team/team";
 
 class App extends React.Component {
   render() {
@@ -71,6 +72,7 @@ class App extends React.Component {
             exact="true"
             component={ProfilePage}
           />
+          <Route path="/Team" render={(props) => <Teams {...props} />} />
           <Route
             path="/contact-us-page"
             render={(props) => <ContactUsPage {...props} />}
