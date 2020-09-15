@@ -50,22 +50,21 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        {/*<Loader />*/}
+        <Loader />
         <IndexNavbar />
         <div className="wrapper bg">
           <Header />
-
+          <div className="main">
+            <StepWise />
+            <Stats />
+            <EventSlider />
+          </div>
           <h1 align="center" style={{ fontSize: "50px" }}>
             PRONITES ...
           </h1>
 
           <div className="wrapper-prn">
             <Pronites />
-          </div>
-          <div className="main">
-            <StepWise />
-            <Stats />
-            <EventSlider />
           </div>
 
           <Footer />

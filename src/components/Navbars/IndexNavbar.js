@@ -153,6 +153,9 @@ class ComponentsNavbar extends React.Component {
               <NavItem>
                 <NavLink href="/sponsors">Sponsors</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/Team">Our Team</NavLink>
+              </NavItem>
 
               <NavItem>
                 <NavLink href="/contact-us-page">Contact Us</NavLink>

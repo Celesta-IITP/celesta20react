@@ -91,7 +91,6 @@ class Header extends React.Component {
                   transform their innovative ideas into a meaningful reality.
                 </p>
               </Col>
-              <Col lg="6"></Col>
             </Row>
           </Container>
         </div>
