@@ -1,22 +1,7 @@
-/*!
-
-=========================================================
-* BLK Design System React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
-
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import PageHeader from "components/PageHeader/PageHeader.js";
@@ -41,18 +26,27 @@ import StepWise from "views/IndexSections/StepWise.js";
 import Stats from "../components/Stats/stats.js";
 import Pronites from "../components/Pronites/pronites";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { refreshPage } from "../redux/actions/authActions";
 
 class Index extends React.Component {
+  refreshFunction = async () => {
+    await this.props.refreshPage(JSON.parse(localStorage.getItem("user")));
+  };
+
   componentDidMount() {
+    console.log("first");
     const token = localStorage.getItem("token");
     console.log(token);
     if (token) {
+      this.refreshFunction();
     }
     document.body.classList.toggle("index-page");
   }
+
   componentWillUnmount() {
     document.body.classList.toggle("index-page");
   }
+
   render() {
     return (
       <div>
@@ -80,5 +74,11 @@ class Index extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  isLoading: state.auth.isLoading,
+  error: state.error,
+  user: state.auth.user,
+});
 
-export default Index;
+export default compose(connect(mapStateToProps, { refreshPage }))(Index);

@@ -1,9 +1,10 @@
 import React from "react";
+import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo_3.png";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { logoutUser } from "../../redux/actions/authActions";
+import { logoutUser, refreshPage } from "../../redux/actions/authActions";
 // reactstrap components
 import {
   Button,
@@ -34,6 +35,12 @@ class ComponentsNavbar extends React.Component {
   }
 
   componentDidMount() {
+    const token = localStorage.getItem("token");
+    console.log("second");
+    console.log(token);
+    if (token) {
+      //this.props.refreshPage(JSON.parse(localStorage.getItem("user")));
+    }
     console.log(this.state.userInfo);
     window.addEventListener("scroll", this.changeColor);
   }
@@ -76,9 +83,19 @@ class ComponentsNavbar extends React.Component {
         <Container>
           <header className="cd-header">
             <div className="cd-logo">
-              <Link to="/">
-                <img src={logo} alt="Logo" style={{ maxHeight: "45px" }} />
-              </Link>
+              <nav>
+                <ul>
+                  <NavItem>
+                    <NavLink href="/">
+                      <img
+                        src={logo}
+                        alt="Logo"
+                        style={{ maxHeight: "45px" }}
+                      />
+                    </NavLink>
+                  </NavItem>
+                </ul>
+              </nav>
             </div>
 
             {Object.keys(this.state.userInfo).length !== 0 ? (
@@ -216,7 +233,9 @@ const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoading,
   error: state.error,
 });
-export default compose(connect(mapStateToProps, { logoutUser }))(
-  ComponentsNavbar
+export default withRouter(
+  compose(connect(mapStateToProps, { logoutUser, refreshPage }))(
+    ComponentsNavbar
+  )
 );
 //export default ComponentsNavbar;

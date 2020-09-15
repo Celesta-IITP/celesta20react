@@ -28,6 +28,7 @@ import SuspEvents from "./components/Explore/SUSP/susp_explore";
 import TechnicalEvents from "./components/Explore/Technical/tech_explore";
 import CA from "components/CA/ca.js";
 import AddEvent from "./components/AddEvent/addEvent";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 class App extends React.Component {
   render() {
@@ -65,10 +66,10 @@ class App extends React.Component {
             exact="true"
             render={(props) => <SigninPage {...props} />}
           />
-          <Route
+          <ProtectedRoute
             path="/profile-page"
             exact="true"
-            render={(props) => <ProfilePage {...props} />}
+            component={ProfilePage}
           />
           <Route
             path="/contact-us-page"
