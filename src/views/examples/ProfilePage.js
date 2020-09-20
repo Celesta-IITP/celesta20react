@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router";
 import classnames from "classnames";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
@@ -257,4 +258,6 @@ const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoading,
   error: state.error,
 });
-export default compose(connect(mapStateToProps, { uploadPhoto }))(ProfilePage);
+export default withRouter(
+  compose(connect(mapStateToProps, { uploadPhoto }))(ProfilePage)
+);

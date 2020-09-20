@@ -50,7 +50,6 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <Loader />
         <IndexNavbar />
         <div className="wrapper bg">
           <Header />
@@ -80,4 +79,6 @@ const mapStateToProps = (state) => ({
   user: state.auth.user,
 });
 
-export default compose(connect(mapStateToProps, { refreshPage }))(Index);
+export default withRouter(
+  compose(connect(mapStateToProps, { refreshPage }))(Index)
+);
