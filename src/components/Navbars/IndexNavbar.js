@@ -43,14 +43,16 @@ class ComponentsNavbar extends React.Component {
   }
 
   changeColor = () => {
-    if (
-      document.documentElement.scrollTop > 99 ||
-      document.body.scrollTop > 99
-    ) {
-      this.setState({
-        color: "bg-info",
-      });
-    } else if (
+    // if (
+    //   document.documentElement.scrollTop > 99 ||
+    //   document.body.scrollTop > 99
+    // ) {
+    //   this.setState({
+    //     color: "bg-info"
+    //   });
+    //} 
+    //else
+     if (
       document.documentElement.scrollTop < 100 ||
       document.body.scrollTop < 100
     ) {
@@ -66,14 +68,14 @@ class ComponentsNavbar extends React.Component {
   render() {
     return (
       <Navbar
-        className={"fixed-top " + this.state.color}
+        className= {this.state.color + " fixed-top"}
         color-on-scroll="100"
         expand="lg"
       >
         <Container>
-          <header className="cd-header">
+            <header className="cd-header">
             <div className="cd-logo">
-              <nav>
+              
                 <ul>
                   <NavItem>
                     <NavLink href="/">
@@ -85,11 +87,11 @@ class ComponentsNavbar extends React.Component {
                     </NavLink>
                   </NavItem>
                 </ul>
-              </nav>
+              
             </div>
 
             {Object.keys(this.state.userInfo).length !== 0 ? (
-              <nav>
+              
                 <ul className="cd-secondary-nav">
                   {this.state.userInfo.isAdmin ? (
                     <li>
@@ -113,7 +115,7 @@ class ComponentsNavbar extends React.Component {
                     </Button>
                   </li>
                 </ul>
-              </nav>
+              
             ) : (
               <nav>
                 <ul className="cd-secondary-nav">
@@ -133,7 +135,8 @@ class ComponentsNavbar extends React.Component {
                 <span className="menu-icon__line menu-icon__line-right"></span>
               </div>
             </div>
-          </header>
+            </header>
+          
 
           <nav>
             <ul className="cd-primary-nav">
