@@ -95,12 +95,12 @@ class ProfilePage extends React.Component {
       file: e.target.files[0],
     });
   }
-  updateProfilePicture(e) {
+  updateProfilePicture=async(e)=> {
     const token = localStorage.getItem("token");
     console.log(token);
     if (this.state.file) {
-      this.props.uploadPhoto(token, this.state.file);
-      this.props.history.push("/");
+      await this.props.uploadPhoto(token, this.state.file);
+      //this.props.history.push("/");
     }
   }
 
@@ -133,7 +133,7 @@ class ProfilePage extends React.Component {
                           this.state.userInfo.createdAt ===
                           this.state.userInfo.updatedAt
                             ? this.state.userInfo.profilePhoto
-                            : `https://${this.state.userInfo.profilePhoto}`
+                            : `http://${this.state.userInfo.profilePhoto}`
                         }
                       />
                       <input
