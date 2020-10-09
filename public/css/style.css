@@ -55,11 +55,13 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(2, 23, 37, 0.95);
   height: 50px;
   width: 100%;
   z-index: 3;
+  background-color:rgba(2, 23, 37, 0.96);
+  /*
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -467,4 +469,9 @@ html, body {
     font-size: 20px;
     font-size: 1.25rem;
   }
+}
+
+nav.navbar
+{
+  padding:0px;
 }
