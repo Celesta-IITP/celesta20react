@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300&display=swap');
 body {
   font-family: Open Sans, "Helvetica Neue", "Helvetica", Helvetica, Arial,   sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   color: #666;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -14,10 +14,10 @@ body {
   box-sizing: border-box;
 }
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
+body, div, dl, dt, dd, ul, ol, li, pre, form, p, blockquote, th, td {
   margin: 0;
   padding: 0;
-  font-size: 13px;
+  font-size: 18px;
   direction: ltr;
 }
 
