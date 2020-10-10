@@ -175,7 +175,7 @@ class RegisterPage extends React.Component {
                           alt="..."
                           src={require("assets/img/square-purple-1.png")}
                         />
-                        <CardTitle tag="h4">Register</CardTitle>
+                        <CardTitle tag="h4" className="ml-2">Register</CardTitle>
                         <Row>
                           <Button
                             className="btn-icon btn-round"
