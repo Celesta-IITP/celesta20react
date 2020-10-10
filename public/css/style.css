@@ -528,7 +528,7 @@ span.countdown-item{
 }
 .countdown-head
 {
-  font-size:30px
+  font-size:40px !important
 }
 }
 .rocket-object
@@ -536,4 +536,20 @@ span.countdown-item{
   animation: rocket-movement 10s linear infinite both running;
   
 }
+/* end */
 
+/* fixing the card in signin and register page  */
+.card-register .card-header .card-title
+{
+  font-size: 3.8em !important;
+  color:#232838 !important;
+  text-transform: none  !important;
+}
+ 
+.card-register .card-header img
+{
+  width: 390px !important;
+  height: 380px !important;
+}
+
+/* end */

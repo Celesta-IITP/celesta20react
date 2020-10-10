@@ -14751,9 +14751,9 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget {
     overflow: hidden; }
     .card-register .card-header .card-title {
       position: relative;
-      font-size: 5em;
+      font-size: 4em;
       font-weight: 900;
-      color: #222a42;
+      color: #7a8299;
       text-transform: lowercase;
       margin-left: -5px;
       z-index: 1; }

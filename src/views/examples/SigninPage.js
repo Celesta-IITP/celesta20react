@@ -147,7 +147,7 @@ class SigninPage extends React.Component {
                           alt="..."
                           src={require("assets/img/square-purple-1.png")}
                         />
-                        <CardTitle tag="h4">Sign In</CardTitle>
+                        <CardTitle tag="h4" className="ml-2">Sign In</CardTitle>
                         <Row>
                           <Button
                             className="btn-icon btn-round"
