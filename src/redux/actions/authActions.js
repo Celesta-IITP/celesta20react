@@ -21,10 +21,10 @@ export const registerUser = (data) => async (dispatch) => {
     console.log("body");
     const res = await Axios.post(`${serverUrl}/users/signup`, data);
     console.log("Signup successful");
-    dispatch({
+    /*dispatch({
       type: USER_LOADED,
       payload: { status: res.status },
-    });
+    });*/
   } catch (err) {
     console.log(err);
     dispatch(

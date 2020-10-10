@@ -92,7 +92,7 @@ class RegisterPage extends React.Component {
       "mousemove",
       this.followCursor
     );
-    alert("You have registered succesfully.")
+    //alert("You have registered succesfully.")
   }
 
   followCursor = (event) => {

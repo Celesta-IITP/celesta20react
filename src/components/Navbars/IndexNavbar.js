@@ -173,7 +173,7 @@ class ComponentsNavbar extends React.Component {
                       </Link>
                     </NavItem>
                     <NavItem>
-                      <NavLink to="/profile-page">
+                      <NavLink href="/profile-page">
                         {this.state.userInfo.name}
                       </NavLink>
                     </NavItem>

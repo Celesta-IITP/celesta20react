@@ -100,7 +100,7 @@ class ProfilePage extends React.Component {
     console.log(token);
     if (this.state.file) {
       await this.props.uploadPhoto(token, this.state.file);
-      //this.props.history.push("/");
+      this.props.history.push("/");
     }
   }
 

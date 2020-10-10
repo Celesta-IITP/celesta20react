@@ -25,6 +25,8 @@ export default function (state = initialState, action) {
       };
     case USER_LOADED:
       console.log(action.payload.user);
+      const user=action.payload.user
+      localStorage.setItem("user",JSON.stringify(user))
       return {
         ...state,
         isLoading: false,
