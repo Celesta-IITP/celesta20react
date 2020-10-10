@@ -354,9 +354,12 @@ html, body {
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
   transition: background 0.2s;
+  color:#e14eca;
+  font-weight:400;
 }
 .no-touch .cd-primary-nav a:hover {
   background-color: #e36767;
+  color:white;
 }
 .cd-primary-nav .cd-label {
   color: #06446e;
@@ -475,3 +478,62 @@ nav.navbar
 {
   padding:0px;
 }
+
+/* 
+styling for the countdown timer
+*/
+.countdown-item 
+{
+  font-size:30px;
+  font-weight: 500;
+  font-family: 'Times New Roman', Times, serif;
+}
+div.row div
+{
+  font-size:25px;
+  font-weight: 500;
+  font-family: 'Times New Roman', Times, serif;
+}
+span.countdown-item{
+  background-color:white;
+  border-radius:20px;
+  color:black;
+  padding:20px;
+  box-shadow: 8px 8px 5px  #544661;
+}
+.countdown-head
+{
+  font-family: sans-serif;
+}
+@media only screen and (max-width : 550px)
+{
+  .countdown-item 
+{
+  font-size:20px;
+  font-weight:300;
+  font-family: 'Times New Roman', Times, serif;
+}
+div.row div
+{
+  font-size:15px;
+  font-weight:300;
+  font-family:'Times New Roman', Times, serif;
+}
+span.countdown-item{
+  background-color:white;
+  border-radius:10px;
+  color:black;
+  padding:10px;
+    
+}
+.countdown-head
+{
+  font-size:30px
+}
+}
+.rocket-object
+{
+  animation: rocket-movement 10s linear infinite both running;
+  
+}
+
