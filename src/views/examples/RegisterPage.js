@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { Alert } from "antd";
+
 // reactstrap components
 import {
   Button,
@@ -22,6 +23,7 @@ import {
   Container,
   Row,
   Col,
+  Dropdown,ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, InputGroupButtonDropdown
 } from "reactstrap";
 
 // core components
@@ -39,10 +41,12 @@ class RegisterPage extends React.Component {
     email: "",
     password: "",
     name: "",
-    sex: "",
+    sex: "Sex",
     college: "",
     phone: "",
     msg: null,
+    dropdownOpen:false,
+
   };
   componentDidMount() {
     document.body.classList.toggle("register-page");
@@ -53,20 +57,27 @@ class RegisterPage extends React.Component {
     const { error, isAuthenticated } = this.props;
     const { name, email, password, college, sex, phone } = this.state;
     if (error !== prevProps.error) {
-      if (error.id === "REGISTER_FAIL") {
-        if (!email || !password || !name || !college || !sex || phone) {
+      if(error.id==='REGISTER_FAIL'){
+        if (!email || !password || !name || !college || !sex || !phone) {
           this.setState({
             msg: "Please enter all fields",
           });
-        } else {
+        }
+        else if(error.status===403){
           this.setState({
-            msg: error.message,
+            msg: "Email is already registered",
           });
         }
-      } else {
+       else if(error.status===500){
+        this.setState({
+          msg: "Mail send failed.",
+        });
+       }  
+       else {
         this.setState({
           msg: null,
         });
+      }
       }
     }
     if (isAuthenticated) {
@@ -77,12 +88,18 @@ class RegisterPage extends React.Component {
     this.props.clearErrors();
     this.props.history.push("/");
   };
+  toggleDropDown=(e)=>{
+    console.log(e.value)
+    console.log(this.state.dropdownOpen)
+    this.setState({dropdownOpen:!this.state.dropdownOpen})
+  }
   componentWillUnmount() {
     document.body.classList.toggle("register-page");
     document.documentElement.removeEventListener(
       "mousemove",
       this.followCursor
     );
+    //alert("You have registered succesfully.")
   }
 
   followCursor = (event) => {
@@ -116,14 +133,27 @@ class RegisterPage extends React.Component {
   };
   submitHandler = (e) => {
     e.preventDefault();
+    let result;
+    if(this.state.sex=="Male")result=0;
+    else if(this.state.sex=="Female")result=1
+    else result=2
+  console.log(result)
     const email = this.state.email;
     const password = this.state.password;
     const name = this.state.name;
     const college = this.state.college;
-    const sex = this.state.sex;
+    const sex = result;
     const phone = this.state.phone;
     this.handleCreate(name, email, password, college, sex, phone);
   };
+  changeValue=(e)=>{ 
+    let result;
+     if(e.currentTarget.textContent=="Male")result=0;
+    else if(e.currentTarget.textContent=="Female")result=1
+    else result=2
+  console.log(result)
+    this.setState({sex:e.currentTarget.textContent})
+  }
   render() {
     const { msg } = this.state;
     return (
@@ -301,7 +331,8 @@ class RegisterPage extends React.Component {
                               }
                             />
                           </InputGroup>
-                          <InputGroup
+
+                            {/*<InputGroup
                             className={classnames({
                               "input-group-focus": this.state.sexFocus,
                             })}
@@ -311,6 +342,8 @@ class RegisterPage extends React.Component {
                                 <i className="tim-icons icon-badge" />
                               </InputGroupText>
                             </InputGroupAddon>
+                            
+                            
                             <Input
                               placeholder="Sex"
                               type="text"
@@ -320,7 +353,13 @@ class RegisterPage extends React.Component {
                                 this.setState({ sex: e.target.value })
                               }
                             />
-                          </InputGroup>
+                            </InputGroup>
+                            <select id="sex" name="sex">
+                            <option value="male">Male</option>
+                            <option value="male">Female</option>
+                            <option value="male">Others</option>
+                            </select>*/}
+                            
                           <InputGroup
                             className={classnames({
                               "input-group-focus": this.state.phoneFocus,
@@ -345,6 +384,21 @@ class RegisterPage extends React.Component {
                               }
                             />
                           </InputGroup>
+                          <InputGroup>
+        
+        <InputGroupButtonDropdown addonType="append" isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
+          <DropdownToggle caret>
+            {this.state.sex}
+          </DropdownToggle>
+          <DropdownMenu> 
+            <DropdownItem ><div onClick={this.changeValue}>Male</div></DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem><div onClick={this.changeValue}>Female</div></DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem><div onClick={this.changeValue}>Others</div></DropdownItem>
+          </DropdownMenu>
+        </InputGroupButtonDropdown>
+      </InputGroup>
                           <FormGroup check className="text-left">
                             <Label check>
                               <Input type="checkbox" />

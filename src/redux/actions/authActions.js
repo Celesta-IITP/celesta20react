@@ -10,8 +10,8 @@ import {
   AUTH_ERROR,
 } from "../actions/types";
 import { returnErrors, clearErrors } from "./errorActions";
-const serverUrl = " https://celesta-backend-iitp.herokuapp.com/api";
-
+//const serverUrl = " https://celesta-backend-iitp.herokuapp.com/api";
+const serverUrl = " http://localhost:4500/api";
 export const registerUser = (data) => async (dispatch) => {
   try {
     console.log("In auth actions");
@@ -21,12 +21,12 @@ export const registerUser = (data) => async (dispatch) => {
     console.log("body");
     const res = await Axios.post(`${serverUrl}/users/signup`, data);
     console.log("Signup successful");
-    dispatch({
+    /*dispatch({
       type: USER_LOADED,
       payload: { status: res.status },
-    });
+    });*/
   } catch (err) {
-    console.log(err);
+    console.log(err.response.data.message);
     dispatch(
       returnErrors(
         err.response.data.message,
