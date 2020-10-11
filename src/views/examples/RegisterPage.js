@@ -57,20 +57,27 @@ class RegisterPage extends React.Component {
     const { error, isAuthenticated } = this.props;
     const { name, email, password, college, sex, phone } = this.state;
     if (error !== prevProps.error) {
-      if (error.id === "REGISTER_FAIL") {
-        if (!email || !password || !name || !college || !sex || phone) {
+      if(error.id==='REGISTER_FAIL'){
+        if (!email || !password || !name || !college || !sex || !phone) {
           this.setState({
             msg: "Please enter all fields",
           });
-        } else {
+        }
+        else if(error.status===403){
           this.setState({
-            msg: error.message,
+            msg: "Email is already registered",
           });
         }
-      } else {
+       else if(error.status===500){
+        this.setState({
+          msg: "Mail send failed.",
+        });
+       }  
+       else {
         this.setState({
           msg: null,
         });
+      }
       }
     }
     if (isAuthenticated) {

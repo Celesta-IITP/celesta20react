@@ -26,7 +26,7 @@ export const registerUser = (data) => async (dispatch) => {
       payload: { status: res.status },
     });*/
   } catch (err) {
-    console.log(err);
+    console.log(err.response.data.message);
     dispatch(
       returnErrors(
         err.response.data.message,
