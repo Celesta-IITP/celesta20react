@@ -12,7 +12,7 @@ class Footer extends React.Component {
 				<div className="row">
 					<div className="col-lg-6 offset-lg-3">
 						<div className="contact-content text-center">
-                <img src={logo} alt="Logo" />;
+                <img src={logo} alt="Logo" />
 							<p>Celesta is the annual Techno-Management Fest of IIT Patna. To promote technical and managerial enthusiasm amongst young and bright minds of our nation and to provide a platform to transform their innovative ideas into a meaningful reality.</p>
 							<div className="hr"></div>
 							<h6>Indian Institute of Technology Patna ,<br/>Bihta Patna-801103 (Bihar)</h6>
