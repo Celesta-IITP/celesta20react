@@ -7,6 +7,7 @@ import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import PageHeader from "components/PageHeader/PageHeader.js";
 import Footer from "components/Footer/Footer.js";
 
+
 // sections for this page/view
 import Basics from "views/IndexSections/Basics.js";
 import Loader from "components/Loader/loader.js";
@@ -27,6 +28,7 @@ import Stats from "../components/Stats/stats.js";
 import Pronites from "../components/Pronites/pronites";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { refreshPage } from "../redux/actions/authActions";
+import Timer from "views/IndexSections/Timer.js";
 
 class Index extends React.Component {
   refreshFunction = async () => {
@@ -54,12 +56,19 @@ class Index extends React.Component {
         <div className="wrapper bg">
           <Header />
           <div className="main">
+            <Timer />
+            <br/>
+            <br/>
+            <br/>
             <StepWise />
             <Stats />
             <EventSlider />
+            <br/>
+            <br/>
+            <br/>
           </div>
-          <h1 align="center" style={{ fontSize: "50px" }}>
-            PRONITES ...
+          <h1 align="center"  className="prontxt">
+            LAST YEAR <br/> PRONITES ...
           </h1>
 
           <div className="wrapper-prn">

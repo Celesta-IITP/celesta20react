@@ -55,11 +55,13 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(2, 23, 37, 0.95);
   height: 50px;
   width: 100%;
   z-index: 3;
+  background-color:rgba(2, 23, 37, 0.96);
+  /*
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -352,9 +354,12 @@ html, body {
   -webkit-transition: background 0.2s;
   -moz-transition: background 0.2s;
   transition: background 0.2s;
+  color:#e14eca;
+  font-weight:400;
 }
 .no-touch .cd-primary-nav a:hover {
   background-color: #e36767;
+  color:white;
 }
 .cd-primary-nav .cd-label {
   color: #06446e;
@@ -468,3 +473,83 @@ html, body {
     font-size: 1.25rem;
   }
 }
+
+nav.navbar
+{
+  padding:0px;
+}
+
+/* 
+styling for the countdown timer
+*/
+.countdown-item 
+{
+  font-size:30px;
+  font-weight: 500;
+  font-family: 'Times New Roman', Times, serif;
+}
+div.row div
+{
+  font-size:25px;
+  font-weight: 500;
+  font-family: 'Times New Roman', Times, serif;
+}
+span.countdown-item{
+  background-color:white;
+  border-radius:20px;
+  color:black;
+  padding:20px;
+  box-shadow: 8px 8px 5px  #544661;
+}
+.countdown-head
+{
+  font-family: sans-serif;
+}
+@media only screen and (max-width : 550px)
+{
+  .countdown-item 
+{
+  font-size:20px;
+  font-weight:300;
+  font-family: 'Times New Roman', Times, serif;
+}
+div.row div
+{
+  font-size:15px;
+  font-weight:300;
+  font-family:'Times New Roman', Times, serif;
+}
+span.countdown-item{
+  background-color:white;
+  border-radius:10px;
+  color:black;
+  padding:10px;
+    
+}
+.countdown-head
+{
+  font-size:40px !important
+}
+}
+.rocket-object
+{
+  animation: rocket-movement 10s linear infinite both running;
+  
+}
+/* end */
+
+/* fixing the card in signin and register page  */
+.card-register .card-header .card-title
+{
+  font-size: 3.8em !important;
+  color:#232838 !important;
+  text-transform: none  !important;
+}
+ 
+.card-register .card-header img
+{
+  width: 390px !important;
+  height: 380px !important;
+}
+
+/* end */
