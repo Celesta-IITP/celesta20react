@@ -133,7 +133,7 @@ class ProfilePage extends React.Component {
                           this.state.userInfo.createdAt ===
                           this.state.userInfo.updatedAt
                             ? this.state.userInfo.profilePhoto
-                            : `http://${this.state.userInfo.profilePhoto}`
+                            : this.state.userInfo.profilePhoto
                         }
                       />
                       <input
