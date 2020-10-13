@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap");
 
 
 .tim-row {
@@ -501,4 +502,38 @@
   top: 0;
   content: "";
   background: rgba(0, 0, 0, .5);
+}
+.glimpses{
+  font-family: "Rubik";
+  font-size: clamp(18px, 2vw, 48px);
+  line-height: clamp(25px, 3vw, 60px);
+
+}
+
+.crouselimg{
+  box-shadow: 0 12px 24px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.3);
+
+}
+
+.prontxt {
+  font-family: 'CoreCircus', sans-serif;
+	font-size: 60px;
+	text-align: center;
+	line-height: 1;
+	margin: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+  letter-spacing: -.5rem;
+  padding-bottom: 150px;
+  padding-top: 100px;
+	
+
+}
+
+
+@font-face {
+	font-family: 'CoreCircus';
+	src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.eot');
+	src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.eot?#iefix') format('embedded-opentype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.woff2') format('woff2'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.woff') format('woff'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/333BF4_8_0.ttf') format('truetype');
 }
