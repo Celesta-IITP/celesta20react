@@ -71,7 +71,7 @@ class Timer extends React.Component
                     </div>
                     </Row>
                 </Container>
-                <img class="rocket-object" src="http://salehriaz.com/404Page/img/rocket.svg" width="60px"></img>
+                <img class="rocket-object" src={require("../../assets/img/homeassets/rocket.svg")} width="60px"></img>
 
             </div>
         );
