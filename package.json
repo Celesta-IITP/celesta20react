@@ -38,6 +38,7 @@
     "reactstrap": "8.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "tabletop": "^1.6.3",
     "yup": "^0.29.1"
   },
   "scripts": {
