@@ -57,12 +57,18 @@ class Index extends React.Component {
           <Header />
           <div className="main">
             <Timer />
+            <br/>
+            <br/>
+            <br/>
             <StepWise />
             <Stats />
             <EventSlider />
+            <br/>
+            <br/>
+            <br/>
           </div>
-          <h1 align="center" style={{ fontSize: "50px" }}>
-            PRONITES ...
+          <h1 align="center"  className="prontxt">
+            LAST YEAR <br/> PRONITES ...
           </h1>
 
           <div className="wrapper-prn">

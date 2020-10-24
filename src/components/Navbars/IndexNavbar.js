@@ -146,6 +146,9 @@ class ComponentsNavbar extends React.Component {
               <NavItem>
                 <NavLink href="/ca">Campus Ambasaddor</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/Points">Live Points Table</NavLink>
+              </NavItem>
 
               <NavItem>
                 <NavLink href="/events-page">Events</NavLink>
@@ -173,7 +176,7 @@ class ComponentsNavbar extends React.Component {
                       </Link>
                     </NavItem>
                     <NavItem>
-                      <NavLink to="/profile-page">
+                      <NavLink href="/profile-page">
                         {this.state.userInfo.name}
                       </NavLink>
                     </NavItem>

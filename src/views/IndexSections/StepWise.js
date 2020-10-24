@@ -29,18 +29,23 @@ const carouselItems = [
     src:
     require('../../assets/img/homeassets/4841dad66f05d4e477b729b2ff59a19e.webp'),
     altText: "Slide 1",
-    caption: "Celesta",
+    caption: "",
   },
   {
     src:
     require('../../assets/img/homeassets/whatsapp_image_2019-12-10_at_15.51.14.jpeg'),
     altText: "Slide 2",
-    caption: "Events",
+    caption: "",
   },
   {
-    src: require('../../assets/img/homeassets/DpUu723VsAA_zpM.jpg_large'),
+    src: require('../../assets/img/homeassets/ha3.jpeg'),
     altText: "Slide 3",
-    caption: "Events",
+    caption: "",
+  },
+  {
+    src: require('../../assets/img/homeassets/HA4.jpeg'),
+    altText: "Slide 4",
+    caption: "",
   },
 ];
 

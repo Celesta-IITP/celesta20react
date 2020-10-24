@@ -2,7 +2,7 @@ import moment, { months } from "moment";
 import {Container , Row } from "reactstrap";
 import React from "react";
 //import { Row } from "reactstrap";
-import "bootstrap-css-only/css/bootstrap.min.css";
+//import "bootstrap-css-only/css/bootstrap.min.css";
 
 
 
@@ -43,10 +43,10 @@ class Timer extends React.Component
     render () {
         const {days , hours , minutes,seconds} = this.state;
         return (
-            <div>
+            <div style={{  textAlign: "center"}}>
                 <h1 className="d-flex justify-content-center countdown-head">FUN BEGINS IN</h1>
-                <div className=" container  countdown-wrapper text-white mt-5">
-                    <div className="row justify-content-center">
+                <Container className="countdown-wrapper text-white mt-5">
+                    <Row className="row justify-content-center">
                     
                     <div className="col-2 ">   
                     <span className="countdown-item">{days}</span>
@@ -69,9 +69,9 @@ class Timer extends React.Component
                     <br /><br />
                     Seconds
                     </div>
-                    </div>
-                </div>
-                <img class="rocket-object" src="http://salehriaz.com/404Page/img/rocket.svg" width="60px"></img>
+                    </Row>
+                </Container>
+                <img class="rocket-object" src={require("../../assets/img/homeassets/rocket.svg")} width="60px"></img>
 
             </div>
         );

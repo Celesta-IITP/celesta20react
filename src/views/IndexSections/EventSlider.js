@@ -30,7 +30,7 @@ import {
 
 const carouselItems = [
     {
-      src: require('../../assets/img/homeassets/1566790917_Um2lHl_events.jpg'),
+      src: require('../../assets/img/homeassets/ha7.jpeg'),
       altText: "Slide 1",
       caption: ""
     },
@@ -40,10 +40,30 @@ const carouselItems = [
       caption: ""
     },
     {
-      src: require('../../assets/img/homeassets/DpUu723VsAA_zpM (1).jpg_large'),
+      src: require('../../assets/img/homeassets/ha3.jpeg'),
       altText: "Slide 3",
       caption: ""
-    }
+    },
+    {
+      src: require('../../assets/img/homeassets/ha8.jpeg'),
+      altText: "Slide 4",
+      caption: ""
+    }, 
+    {
+      src: require('../../assets/img/homeassets/ha9.jpeg'),
+      altText: "Slide 5",
+      caption: ""
+    },
+    {
+      src: require('../../assets/img/homeassets/ha10.jpeg'),
+      altText: "Slide 6",
+      caption: ""
+    },
+    {
+      src: require('../../assets/img/homeassets/ha11.jpeg'),
+      altText: "Slide 7",
+      caption: ""
+    },
   ];
 
 class EventSlider extends React.Component{
@@ -69,15 +89,18 @@ class EventSlider extends React.Component{
 
                     </Col>
                     <Col lg="8">
+                    <h2 className="glimpses"> Some glimpses from last year...</h2>  
+                    <div className="crouselimg">
                     <UncontrolledCarousel
                         items={carouselItems}
                         indicators={false}
                         autoPlay={false}
                     />
+                    </div>
+                    <div  className="spacein"></div>
                     </Col>
-                    <Col lg="2">
-                        
-                    </Col>
+                    
+
                 </Row>
             </Container>
 			</div>
