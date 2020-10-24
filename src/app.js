@@ -28,6 +28,7 @@ import SuspEvents from "./components/Explore/SUSP/susp_explore";
 import TechnicalEvents from "./components/Explore/Technical/tech_explore";
 import CA from "components/CA/ca.js";
 import AddEvent from "./components/AddEvent/addEvent";
+import Points from "components/PtsTable/pts.js";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -125,6 +126,7 @@ class App extends React.Component {
           />
           <Route path="/gallery" render={(props) => <Photos {...props} />} />
           <Route path="/sponsors" render={(props) => <Sponsors {...props} />} />
+          <Route path="/Points" render={(props) => <Points {...props} />} />
           <Route path="/stats" render={(props) => <Stats {...props} />} />
           <Route path="/ca" render={(props) => <CA {...props} />} />
           <Route path="*" component={NotFound} />
