@@ -1,23 +1,24 @@
 import React from 'react';
-import events from '../../../assets/events.json';
+//import events from '../../../assets/events.json';
 import Extab from '../Extab/Extab'
 
 export const SuspCards = (props) => {
+	const school = props.events;
 	return(
 		<div>
-			{Object.entries(events.school).map(([key, value]) =>
-			    <div key={value.eid} className="susp_el">
+			{Object.entries(school).map(([key, value]) =>
+			    <div key={parseInt(key)} className="susp_el">
 			      <div className="susp_el__overflow">
 			        <div className="susp_el__inner">
 			          <div className="susp_el__bg"></div>
 			          <div className="susp_el__preview-cont">
-			            <h2 className="susp_el__heading">{value.EventName}</h2>
+			            <h2 className="susp_el__heading">{value.name}</h2>
 			          </div>
 			          <div className="susp_el__content">
-			            <div className="susp_el__text">{value.EventName}</div>
+			            <div className="susp_el__text">{value.name}</div>
 			            <div className="susp_el__close-btn"></div>
 			            <div className="event_data">
-			            	<Extab key={value.eid} eventDetails={value} {...props} />
+			            	<Extab key={parseInt(key)} eventDetails={value}/>
 		            	</div>
 			          </div>
 			        </div>
