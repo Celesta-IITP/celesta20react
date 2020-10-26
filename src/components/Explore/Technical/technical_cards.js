@@ -1,23 +1,24 @@
 import React from 'react';
-import events from '../../../assets/events.json';
+//import events from '../../../assets/events.json';
 import Extab from '../Extab/Extab'
 
 export const TechnicalCards = (props) => {
+	const technical = props.events;
 	return(
 		<div>
-			{Object.entries(events.technical).map(([key, value]) =>
-			    <div key={value.eid} className="tech_el">
+			{Object.entries(technical).map(([key, value]) =>
+			    <div key={parseInt(key)} className="tech_el">
 			      <div className="tech_el__overflow">
 			        <div className="tech_el__inner">
 			          <div className="tech_el__bg"></div>
 			          <div className="tech_el__preview-cont">
-			            <h2 className="tech_el__heading">{value.EventName}</h2>
+			            <h2 className="tech_el__heading">{value.name}</h2>
 			          </div>
 			          <div className="tech_el__content">
-			            <div className="tech_el__text">{value.EventName}</div>
+			            <div className="tech_el__text">{value.name}</div>
 			            <div className="tech_el__close-btn"></div>
 			            <div className="event_data">
-			            	<Extab key={value.eid} eventDetails={value} {...props} />
+			            	<Extab key={parseInt(key)} eventDetails={value} />
 		            	</div>
 			          </div>
 			        </div>

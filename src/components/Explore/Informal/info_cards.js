@@ -3,21 +3,22 @@ import events from '../../../assets/events.json';
 import Extab from '../Extab/Extab'
 
 export const InfoCards = (props) => {
+	const onsite = props.events;
 	return(
 		<div>
-			{Object.entries(events.onsite).map(([key, value]) =>
-			    <div key={value.eid} className="info_el">
+			{Object.entries(onsite).map(([key, value]) =>
+			    <div key={parseInt(key)} className="info_el">
 			      <div className="info_el__overflow">
 			        <div className="info_el__inner">
 			          <div className="info_el__bg"></div>
 			          <div className="info_el__preview-cont">
-			            <h2 className="info_el__heading">{value.EventName}</h2>
+			            <h2 className="info_el__heading">{value.name}</h2>
 			          </div>
 			          <div className="info_el__content">
-			            <div className="info_el__text">{value.EventName}</div>
+			            <div className="info_el__text">{value.name}</div>
 			            <div className="info_el__close-btn"></div>
 			            <div className="event_data">
-			            	<Extab key={value.eid} eventDetails={value} {...props} />
+			            	<Extab key={parseInt(key)} eventDetails={value}/>
 		            	</div>
 			          </div>
 			        </div>
