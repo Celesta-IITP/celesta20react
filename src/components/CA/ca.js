@@ -3,6 +3,8 @@ import Navbar from "../Navbars/IndexNavbar";
 import Footer from "../Footer/Footer.js";
 import Loader from "../Loader/loader";
 import "./ca.css";
+import axios from 'axios';
+
 // import { contactFunctions } from "./caFunctions";
 /*class Ca extends Component {
   render() {
@@ -18,8 +20,56 @@ import "./ca.css";
     );
   }
 }*/
+
+
 class CA extends Component {
+
+  state = {
+    name:'',
+    mail:'',
+    col:'',
+    mobnum:'',
+    pass:'',
+    msg:''
+  };
+
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+  };
+
+  submit = (event) => {
+    event.preventDefault();
+  
+    axios.post('http://localhost:4500/api/ca/register/',{
+      email : this.state.mail,
+      name : this.state.name,
+      phone : this.state.mobnum,
+      password : this.state.pass,
+      college : this.state.col
+    })
+      .then(() => {
+        console.log('Data has been sent to the server');
+        this.setState({msg: "CA Registration was succesfull"});
+        this.resetUserInputs();
+      })
+      .catch(() => {
+        console.log('Internal server error');
+      });;
+  };
+
+  resetUserInputs = () => {
+    this.setState({
+      name:'',
+      mail:'',
+      col:'',
+      mobnum:'',
+      pass:''
+    });
+  };
+
   render() {
+    console.log('State: ', this.state);
     return (
       <div>
         <Navbar />
@@ -107,15 +157,19 @@ class CA extends Component {
             <div className="form-registration">
               <div className="card card-x">
                 <div className="card-body card-bodyx">
-                  <form>
+                  <form onSubmit={this.submit}>
+                    <div>{this.state.msg}</div>
                     <div className="form-group" style={{ fontSize: "20px" }}>
                       <label className="form-label" htmlFor="identityName">
                         Name
                       </label>
                       <input
                         type="text"
+                        name="name"
                         className="form-control"
                         id="identityName"
+                        value={this.state.name}
+                        onChange={this.handleChange}
                         required
                       />
                     </div>
@@ -125,8 +179,11 @@ class CA extends Component {
                       </label>
                       <input
                         type="email"
+                        name="mail"
                         className="form-control"
                         id="inputEmail"
+                        value={this.state.mail}
+                        onChange={this.handleChange}
                         required
                       />
                     </div>
@@ -136,160 +193,45 @@ class CA extends Component {
                       </label>
                       <input
                         type="text"
+                        name="mobnum"
                         className="form-control"
                         id="mobileNum"
                         pattern="^\d{10}$"
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="address">
-                        Address
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="address"
+                        value={this.state.mobnum}
+                        onChange={this.handleChange}
                         required
                       />
                     </div>
                     <div className="form-group">
                       <label className="form-label" htmlFor="colgName">
-                        College/University NAME
+                        College/University Name
                       </label>
                       <input
                         type="text"
+                        name="col"
                         className="form-control"
                         id="colgName"
+                        value={this.state.col}
+                        onChange={this.handleChange}
                         required
                       />
                     </div>
                     <div className="form-group">
-                      <label className="form-label" htmlFor="colgCity">
-                        City
+                      <label className="form-label" htmlFor="pwd">
+                        Password
                       </label>
                       <input
-                        type="text"
+                        type="password"
+                        name="pass"
                         className="form-control"
-                        id="colgCity"
+                        id="pwd"
+                        value={this.state.pass}
+                        onChange={this.handleChange}
                         required
                       />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="colgStrentg">
-                        Total Student Strength of your Institution(approx)
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="colgStrentg"
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="studyCourse">
-                        Course of Study
-                      </label>
-                      <select
-                        className="form-control"
-                        id="studyCourse"
-                        required
-                      >
-                        <option>B.Tech/B.E.</option>
-                        <option>M.Tech/M.E.</option>
-                        <option>BCA</option>
-                        <option>MCA</option>
-                        <option>BBA</option>
-                        <option>MBA</option>
-                        <option>B.Sc</option>
-                        <option>B.Arch</option>
-                        <option>BA</option>
-                        <option>BCom.</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="dept">
-                        Department
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="dept"
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="yos">
-                        Year Of Study
-                      </label>
-                      <select className="form-control" id="yos" required>
-                        <option>1st year</option>
-                        <option>2nd year</option>
-                        <option>3nd year</option>
-                        <option>4th year</option>
-                        <option>5th year</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="cop">
-                        Contact Point - Gen. Secretary/President/Head Student
-                        Authority of Student Body
-                      </label>
-                      <textarea
-                        type="text"
-                        rows={2}
-                        className="form-control"
-                        id="cop"
-                        required
-                        defaultValue={""}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="porh">
-                        Positions of Responsibility Held
-                      </label>
-                      <textarea
-                        type="text"
-                        rows={2}
-                        className="form-control"
-                        id="porh"
-                        required
-                        defaultValue={""}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="whyHro">
-                        Why Do You Want to join as CELESTA Campus Ambassador?
-                      </label>
-                      <textarea
-                        type="text"
-                        rows={4}
-                        className="form-control"
-                        id="whyHro"
-                        required
-                        defaultValue={""}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="knoUCHP">
-                        How did you came to know about CELESTA Campus Ambassador
-                        Program?
-                      </label>
-                      <select className="form-control" id="knoUCHP" required>
-                        <option>CELESTA Official FB Page</option>
-                        <option>CELESTA Official Website</option>
-                        <option>CELESTA Representatives</option>
-                        <option>CELESTA Campus Ambassador Poster</option>
-                        <option>Other</option>
-                      </select>
                     </div>
                     <br />
-                    <button
-                      type="submit"
-                      className="btn btn-register btn-lg btn-block"
-                      onclick="register()"
-                    >
+                    <button className="btn btn-register btn-lg btn-block">
                       Register!
                     </button>
                   </form>

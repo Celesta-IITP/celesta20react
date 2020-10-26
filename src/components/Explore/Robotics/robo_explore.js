@@ -20,10 +20,11 @@ class robo_explore extends Component {
 	}
 
 	getEvents = () => {
+		const token = localStorage.getItem("token");
 		axios.get('http://localhost:4500/api/events/bytype/robotics/detailed/',{
 			headers: {
 			  "Content-Type": "application/json",
-			  Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhc2h3YW5pIiwic3ViIjoiNWY5MDMwY2EyZjIyYjU0ZTA0NGY2NTQ3IiwiaWF0IjoxNjAzMzA0Njg0OTM5LCJleHAiOjE2MDU4OTY2ODQ5Mzl9.Z-GG5gzl_sFCSpJtB7uNHEzBhiJImgFaxOI0UTNjzs0",
+			  Authorization: token,
 			},
 		  })
 		  .then((response) => {
