@@ -1,23 +1,24 @@
 import React from 'react';
-import events from './../../../assets/events.json';
+//import events from './../../../assets/events.json';
 import Extab from '../Extab/Extab'
 
 export const GamiacCards = (props) => {
+	const gamiacs = props.events;
 	return(
 		<div>
-			{Object.entries(events.gamiacs).map(([key, value]) =>
-			    <div key={value.eid} className="gam_el">
+			{Object.entries(gamiacs).map(([key, value]) =>
+			    <div key={parseInt(key)} className="gam_el">
 			      <div className="gam_el__overflow">
 			        <div className="gam_el__inner">
 			          <div className="gam_el__bg"></div>
 			          <div className="gam_el__preview-cont">
-			            <h2 className="gam_el__heading">{value.EventName}</h2>
+			            <h2 className="gam_el__heading">{value.name}</h2>
 			          </div>
 			          <div className="gam_el__content">
-			            <div className="gam_el__text">{value.EventName}</div>
+			            <div className="gam_el__text">{value.name}</div>
 			            <div className="gam_el__close-btn"></div>
 			            <div className="event_data">
-			            	<Extab key={value.eid} eventDetails={value} {...props} />
+			            	<Extab key={parseInt(key)} eventDetails={value}/>
 			            </div>
 			          </div>
 			        </div>

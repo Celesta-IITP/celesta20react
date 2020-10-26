@@ -1,23 +1,24 @@
 import React from 'react';
-import events from '../../../assets/events.json';
+//import events from '../../../assets/events.json';
 import Extab from '../Extab/Extab'
 
 export const ManCards = (props) => {
+	const managerial = props.events;
 	return(
 		<div>
-			{Object.entries(events.managerial).map(([key, value]) =>
-			    <div key={value.eid} className="man_el">
+			{Object.entries(managerial).map(([key, value]) =>
+			    <div key={parseInt(key)} className="man_el">
 			      <div className="man_el__overflow">
 			        <div className="man_el__inner">
 			          <div className="man_el__bg"></div>
 			          <div className="man_el__preview-cont">
-			            <h2 className="man_el__heading">{value.EventName}</h2>
+			            <h2 className="man_el__heading">{value.name}</h2>
 			          </div>
 			          <div className="man_el__content">
-			            <div className="man_el__text">{value.EventName}</div>
+			            <div className="man_el__text">{value.name}</div>
 			            <div className="man_el__close-btn"></div>
 			            <div className="event_data">
-			            	<Extab key={value.eid} eventDetails={value} {...props} />
+			            	<Extab key={parseInt(key)} eventDetails={value} />
 		            	</div>
 			          </div>
 			        </div>
