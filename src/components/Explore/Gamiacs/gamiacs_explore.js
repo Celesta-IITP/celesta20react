@@ -20,12 +20,13 @@ class gamiacs_explore extends Component {
   }
 
   getEvents = () => {
+    const token = localStorage.getItem("token");
+    console.log(token);
     axios
       .get("http://localhost:4500/api/events/bytype/gamiacs/detailed/", {
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhc2h3YW5pIiwic3ViIjoiNWY5NzE3YmMwMGExNTQyOWM0ZDg4YTA5IiwiaWF0IjoxNjAzNzM3NTY1NzkwLCJleHAiOjE2MDYzMjk1NjU3OTB9.YDXG_RzlU3WLd1agbZFfEV982EJjobmCQjdHb61vk1s",
+          Authorization: token,
         },
       })
       .then((response) => {
@@ -33,7 +34,8 @@ class gamiacs_explore extends Component {
         this.setState({ gamiacs: data });
         console.log("Data has been received!!");
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e.message);
         alert("Error retrieving data!!!");
       });
   };
@@ -42,6 +44,7 @@ class gamiacs_explore extends Component {
     return (
       <div>
         <BackToEvents />
+        {this.getEvents()}
         <div className="gam_cont s--inactive">
           <div className="gam_cont__inner">
             <GamiacCards events={this.state.gamiacs} />
