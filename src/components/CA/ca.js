@@ -41,7 +41,7 @@ class CA extends Component {
   submit = (event) => {
     event.preventDefault();
   
-    axios.post('http://localhost:4500/api/ca/register/',{
+    axios.post('https://celesta-backend-iitp.herokuapp.com/api/ca/register/',{
       email : this.state.mail,
       name : this.state.name,
       phone : this.state.mobnum,
