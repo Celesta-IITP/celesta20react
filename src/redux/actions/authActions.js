@@ -10,8 +10,8 @@ import {
   AUTH_ERROR,
 } from "../actions/types";
 import { returnErrors, clearErrors } from "./errorActions";
-//const serverUrl = " https://celesta-backend-iitp.herokuapp.com/api";
-const serverUrl = " http://localhost:4500/api";
+const serverUrl = " https://celesta-backend-iitp.herokuapp.com/api";
+// const serverUrl = " http://localhost:4500/api";
 export const registerUser = (data) => async (dispatch) => {
   try {
     console.log("In auth actions");
