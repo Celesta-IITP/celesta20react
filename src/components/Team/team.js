@@ -23,7 +23,7 @@ const TeamPage = ( ) => {
         </div>
 
         <ul className="circles">
-                    <li></li>
+                    <li></li> 
                     <li></li>
                     <li></li>
                     <li></li>
