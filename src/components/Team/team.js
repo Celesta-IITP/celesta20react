@@ -1,103 +1,85 @@
 import React from "react";
 import Navbar from "../Navbars/IndexNavbar";
 import Footer from "../Footer/Footer.js";
-import {  MDBRow, MDBCol, MDBCard,  MDBCardBody, MDBIcon, MDBBtn,MDBContainer,MDBBox } from "mdbreact";
 import  "./team.css";
+import teamdata from "./teamdata";
 
 // import {MDBAvatar } from "mdbreact" ;
 
-const TeamPage = () => {
+const TeamPage = ( ) => {
+  
   return (
     <div className="aqua-gradient color-block-5 mb-3 mx-auto rounded-circle z-depth-1">
     <Navbar />
-    <MDBCard className="my-5 px-1 pb-5 text-center">
-        <MDBCardBody>
-          <h1 className="h1-responsive font-weight-bold my-5" style = {{fontSize : "100px"}}>
-            WEB TEAM
-          </h1>
-          <p className="grey-text w-responsive mx-auto mb-5">
-          </p>
-          <MDBRow>
-            <MDBCol md="4" className="mb-md-0 mb-5">
-              
-              <MDBBox
-                tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg"
-                className="rounded z-depth-1-half img-fluid"
-                alt="Sample avatar"
-              />
-              <h4 className="font-weight-bold dark-grey-text my-4">
-                Maria Kate
-              </h4>
-              <h6 className="text-uppercase grey-text mb-3">Photographer</h6>
-              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-fb">
-                <MDBIcon fab icon="facebook-f" />
-              </MDBBtn>
-              <MDBBtn
-                tag="a"
-                floating
-                size="sm"
-                className="mx-1 mb-0 btn-dribbble"
-              >
-                <MDBIcon fab icon="dribbble" />
-              </MDBBtn>
-              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-tw">
-                <MDBIcon fab icon="twitter" />
-              </MDBBtn>
-            </MDBCol>
+    <section className="speakers-section">
+        <div className="parallax-scene parallax-scene-2 anim-icons">
+            <span data-depth="0.40" className="parallax-layer icon icon-circle-5"></span>
+            <span data-depth="0.99" className="parallax-layer icon icon-circle-5"></span>
+        </div>
 
-            <MDBCol md="4" className="mb-md-0 mb-5">
-              <img
-                tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg"
-                className="rounded z-depth-1-half img-fluid"
-                alt="Sample avatar"
-              />
-              <h4 className="font-weight-bold dark-grey-text my-4">John Doe</h4>
-              <h6 className="text-uppercase grey-text mb-3">
-                Front-end Developer
-              </h6>
-              <MDBBtn
-                tag="a"
-                floating
-                size="sm"
-                className="mx-1 mb-0 btn-email"
-              >
-                <MDBIcon icon="envelope" />
-              </MDBBtn>
-              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-fb">
-                <MDBIcon fab icon="facebook-f" />
-              </MDBBtn>
-              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-git">
-                <MDBIcon fab icon="github" />
-              </MDBBtn>
-            </MDBCol>
+<div className="container">
+      <div className="sec-title light text-center">
+        <span className="title">Our Team</span>
+        </div>
 
-            <MDBCol md="4" className="mb-md-0 mb-5">
-              <img
-                tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
-                className="rounded z-depth-1-half img-fluid"
-                alt="Sample avatar"
-              />
-              <h4 className="font-weight-bold dark-grey-text my-4">
-                Sarah Melyah
-              </h4>
-              <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
-              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-li">
-                <MDBIcon fab icon="linkedin-in" />
-              </MDBBtn>
-              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-tw">
-                <MDBIcon fab icon="twitter" />
-              </MDBBtn>
-              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-pin">
-                <MDBIcon fab icon="pinterest" />
-              </MDBBtn>
-            </MDBCol>
-          </MDBRow>
-          
-        </MDBCardBody>
-      </MDBCard>
+        <ul className="circles">
+                    <li></li> 
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+
+{teamdata.map(( x , i) =>{ 
+      return(
+          <>
+                <div className="sec-title light text-center">
+                  <h2>{x.teamname}</h2>
+                </div>
+
+                <div className="row">
+                
+                {x.members.map((y , i) => 
+
+                      <div className="speaker-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                          <div className="inner-box">
+                              <div className="image-box">
+                                  <figure className="image"><img src={`${y.image}`} alt=""/>
+                                      <div className="social-links">
+                                          <ul>
+                                            <li><a href="#"><span className="fab fa-facebook-f"></span></a></li> 
+                                            <li><a href="#"><span className="fab fa-linkedin-in"></span></a></li> 
+                                          </ul>
+                                      </div>
+                                  </figure>
+                              </div>
+                              <div className="caption-box">
+                                  <h4 className="name"><a href="#">{y.name}</a></h4>
+                                  <span className="designation">{y.position}</span>
+                              </div>
+                          </div>
+                      </div>
+
+                  )}
+
+            
+
+               </div>
+    </>
+      )
+            })}  
+
+
+            {/* {x.image.map((y) => <img className="sp pa5" src={`${y}`} alt="sponsor" />)} */}
+
+
+</div>
+</section>
       <Footer />
       </div>
   );

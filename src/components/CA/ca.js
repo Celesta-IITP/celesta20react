@@ -47,6 +47,7 @@ class CA extends Component {
         password: this.state.pass,
         college: this.state.col,
       })
+
       .then(() => {
         console.log("Data has been sent to the server");
         this.setState({ msg: "CA Registration was succesfull" });

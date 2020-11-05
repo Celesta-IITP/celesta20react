@@ -57,13 +57,15 @@ h1 {
   text-transform: uppercase;
 }
 .sp_img .heading  {
-
-padding-top: 100px;
-text-shadow : 0 0 5px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 15px #4093e0, 0 0 20px #4093e0, 0 0 20px #4093e0, 0 0 30px #4093e0, 0 0 55px #4093e0;
-letter-spacing : 5px;
-text-align: center;
-margin-left: auto;
-margin-right: auto; 
+  
+  padding-top: 80px;
+  position:relative;
+  font-size:45px;
+  line-height:1em;
+  color:#ffffff;
+  font-weight:400;
+  padding-bottom: 30px;
+  z-index: 2;
 
   
 }

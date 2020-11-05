@@ -8,7 +8,7 @@ import sponsdata from "./sponsorsdata" ;
 
 
 
-const Sponsors = ( props ) =>  {
+const Sponsors = ( ) =>  {
 
   
   
@@ -18,11 +18,11 @@ const Sponsors = ( props ) =>  {
       <div className="sp-main">
         <ExamplesNavbar />
         {/*<h1 className="sp-head">Sponsors</h1>*/}
-        <div className="sp-slider">
+        <div className="sp-slider" style={{"background-image": "url(https://i.ibb.co/92HJxz2/team-bg.jpg)"}}>
          
           <br/><br/><br/><br/>
 
-          <h1 className="sp_head2 heading"> OUR SPONSORS! </h1>
+          <h1 className="sp_head2 heading"> OUR LAST YEAR SPONSORS! </h1>
           <div>
            <br/>
 
@@ -30,7 +30,7 @@ const Sponsors = ( props ) =>  {
           {sponsdata.map(( x , i) =>{ 
             return(
 
-          <div className="sp_img ">
+          <div className="sp_img " >
             <div key={i}>
             <h1 className="heading">{x.name}</h1>
             {x.image.map((y) => <img className="sp pa5" src={`${y}`} alt="sponsor" />)}
