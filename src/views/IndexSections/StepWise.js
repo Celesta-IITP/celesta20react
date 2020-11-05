@@ -23,27 +23,25 @@ import {
   Label,
   UncontrolledCarousel,
 } from "reactstrap";
-
+import { serverUrl } from "../../config";
 const carouselItems = [
-  { 
-    src:
-    require('../../assets/img/homeassets/4841dad66f05d4e477b729b2ff59a19e.webp'),
+  {
+    src: require("../../assets/img/homeassets/4841dad66f05d4e477b729b2ff59a19e.webp"),
     altText: "Slide 1",
     caption: "",
   },
   {
-    src:
-    require('../../assets/img/homeassets/whatsapp_image_2019-12-10_at_15.51.14.jpeg'),
+    src: require("../../assets/img/homeassets/whatsapp_image_2019-12-10_at_15.51.14.jpeg"),
     altText: "Slide 2",
     caption: "",
   },
   {
-    src: require('../../assets/img/homeassets/ha3.jpeg'),
+    src: require("../../assets/img/homeassets/ha3.jpeg"),
     altText: "Slide 3",
     caption: "",
   },
   {
-    src: require('../../assets/img/homeassets/HA4.jpeg'),
+    src: require("../../assets/img/homeassets/HA4.jpeg"),
     altText: "Slide 4",
     caption: "",
   },
@@ -119,7 +117,7 @@ class StepWise extends React.Component {
             <Col lg="6">
               <div className="img1">
                 <img
-                  src={require('../../assets/img/homeassets/119210264_4193612400654070_2709213598359851591_o.jpg')}
+                  src={require("../../assets/img/homeassets/119210264_4193612400654070_2709213598359851591_o.jpg")}
                   rounded
                 />
               </div>{" "}
@@ -147,11 +145,7 @@ class StepWise extends React.Component {
                 campus ambassadors are entitled to exciting prizes, apart from
                 the coveted certificate and many other goodies.
               </p>
-              <Button
-                className="mt-4"
-                color="warning"
-                href="https://demos.creative-tim.com/blk-design-system-react/#/documentation/alerts"
-              >
+              <Button className="mt-4" color="warning" href={serverUrl + "ca"}>
                 Register
               </Button>
             </Col>
