@@ -3,7 +3,7 @@ import Navbar from "../Navbars/IndexNavbar";
 import Footer from "../Footer/Footer.js";
 import Loader from "../Loader/loader";
 import "./ca.css";
-import axios from 'axios';
+import axios from "axios";
 
 // import { contactFunctions } from "./caFunctions";
 /*class Ca extends Component {
@@ -21,16 +21,14 @@ import axios from 'axios';
   }
 }*/
 
-
 class CA extends Component {
-
   state = {
-    name:'',
-    mail:'',
-    col:'',
-    mobnum:'',
-    pass:'',
-    msg:''
+    name: "",
+    mail: "",
+    col: "",
+    mobnum: "",
+    pass: "",
+    msg: "",
   };
 
   handleChange = ({ target }) => {
@@ -40,36 +38,38 @@ class CA extends Component {
 
   submit = (event) => {
     event.preventDefault();
-  
-    axios.post('https://celesta-backend-iitp.herokuapp.com/api/ca/register/',{
-      email : this.state.mail,
-      name : this.state.name,
-      phone : this.state.mobnum,
-      password : this.state.pass,
-      college : this.state.col
-    })
+
+    axios
+      .post("http://localhost:4500/api/ca/register/", {
+        email: this.state.mail,
+        name: this.state.name,
+        phone: this.state.mobnum,
+        password: this.state.pass,
+        college: this.state.col,
+      })
+
       .then(() => {
-        console.log('Data has been sent to the server');
-        this.setState({msg: "CA Registration was succesfull"});
+        console.log("Data has been sent to the server");
+        this.setState({ msg: "CA Registration was succesfull" });
         this.resetUserInputs();
       })
       .catch(() => {
-        console.log('Internal server error');
-      });;
+        console.log("Internal server error");
+      });
   };
 
   resetUserInputs = () => {
     this.setState({
-      name:'',
-      mail:'',
-      col:'',
-      mobnum:'',
-      pass:''
+      name: "",
+      mail: "",
+      col: "",
+      mobnum: "",
+      pass: "",
     });
   };
 
   render() {
-    console.log('State: ', this.state);
+    console.log("State: ", this.state);
     return (
       <div>
         <Navbar />
@@ -158,7 +158,7 @@ class CA extends Component {
               <div className="card card-x">
                 <div className="card-body card-bodyx">
                   <form onSubmit={this.submit}>
-                    <div>{this.state.msg}</div>
+                    <h1>{this.state.msg}</h1>
                     <div className="form-group" style={{ fontSize: "20px" }}>
                       <label className="form-label" htmlFor="identityName">
                         Name
