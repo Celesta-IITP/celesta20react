@@ -4,18 +4,18 @@ const teamdata = [
                 "teamname" : "Fest Coordinators",
                 "members" : [{
                         "name" : "Joshika Arya",
-                        "image" :  "https://scontent.fpat2-2.fna.fbcdn.net/v/t1.0-9/89537639_523116611944086_7782453755072479232_o.jpg?_nc_cat=100&ccb=2&_nc_sid=09cbfe&_nc_ohc=TvWpesHPR3oAX-MyMP9&_nc_ht=scontent.fpat2-2.fna&oh=11b64b5031d639e4ccb1e8ea0b88c143&oe=5FC9483B",
+                        "image" :  require("../../assets/img/CORDS/Joshika.jpg"),                                            
                         "position" : "",
-                        "fb" : "www.fb.com",
-                        "ln" : "www.linkedin.com",
+                        "fb" : "https://www.facebook.com/joshika.arya",
+                        "ln" : "https://www.linkedin.com/in/joshika/",
 
                     },
                     {
                         "name" : "Yuvi Dhelawat",
-                        "image" :  "https://scontent.fpat2-1.fna.fbcdn.net/v/t1.0-9/89327184_2780341048730990_3250393591339548672_o.jpg?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=kg78GwRTTMMAX8Dd_-x&_nc_ht=scontent.fpat2-1.fna&oh=49b64e6cbff559686f3d90f5f9559712&oe=5FC83D41",
+                        "image" :  require("../../assets/img/CORDS/YUVI.JPG"), 
                         "position" : "",
-                        "fb" : "www.fb.com",
-                        "ln" : "www.linkedin.com",
+                        "fb" : "https://www.facebook.com/yuvi.dhelawat",
+                        "ln" : "https://www.linkedin.com/in/yuvi-dhelawat/",
                     },
                 ]
 
@@ -31,14 +31,14 @@ const teamdata = [
                     },
                     {
                         "name" : "Aryan Kothari",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                        "image" :  require("../../assets/img/CORDS/Aryan_kothari.jpg"),
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
                     },
                     {
                         "name" : "Balbeer Yadav",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                        "image" :  require("../../assets/img/CORDS/Balbeer.png"),
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
@@ -57,14 +57,14 @@ const teamdata = [
                 },
                 {
                     "name" : "Vijaya Gonugade",
-                    "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                    "image" :  require("../../assets/img/CORDS/Vijaya Gonugade.jpeg"),
                     "position" : "",
                     "fb" : "www.fb.com",
                     "ln" : "www.linkedin.com",
                 },
                 {
                     "name" : "Anmol Chaddha",
-                    "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                    "image" :  require("../../assets/img/CORDS/Anmol Chaddha.JPG"),
                     "position" : "",
                     "fb" : "www.fb.com",
                     "ln" : "www.linkedin.com",
@@ -102,21 +102,21 @@ const teamdata = [
                 "teamname" : "Registration",
                 "members" : [{
                         "name" : "Vinay Kumar Meena",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
-                        "position" : "",
-                        "fb" : "www.fb.com",
-                        "ln" : "www.linkedin.com",
-                    },
-                    {
-                        "name" : "Rakesh Kumar",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                        "image" :  require("../../assets/img/CORDS/vinay.jpeg"),
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
                     },
                     {
                         "name" : "Swati Kumari",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                        "image" : require("../../assets/img/CORDS/swati.jpeg"),
+                        "position" : "",
+                        "fb" : "www.fb.com",
+                        "ln" : "www.linkedin.com",
+                    },
+                    {
+                        "name" : "Rakesh Kumar",
+                        "image" : require("../../assets/img/CORDS/rakesh kumar.jpeg"),
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
@@ -161,14 +161,14 @@ const teamdata = [
                     },
                     {
                         "name" : "Sunny Chaturvedi",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                        "image" :  require("../../assets/img/CORDS/Sunny_Chaturvedi.jpg"),
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
                     },
                     {
                         "name" : "Rahul Verma ",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                        "image" :   require("../../assets/img/CORDS/Rahul Verma.jpg"),
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
@@ -180,14 +180,14 @@ const teamdata = [
                 "teamname" : "Flagship Events",
                 "members" : [{
                         "name" : "Hrishabh Raj",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                        "image" :  require("../../assets/img/CORDS/Hrishabh_raj.jpg"),
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
                     },
                     {
                         "name" : "Durgesh Singh",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                        "image" :   require("../../assets/img/CORDS/Durgesh.jpg"),
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
@@ -230,16 +230,17 @@ const teamdata = [
             },
             { 
                 "teamname" : "Events & Guest Lectures",
-                "members" : [{
-                        "name" : "Shreya Sinha",
+                "members" : [
+                    {
+                        "name" : "Akash Balaji",
                         "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
                     },
                     {
-                        "name" : "Akash Balaji",
-                        "image" :  "https://i.ibb.co/JC4skS0/team-animate.jpg",
+                        "name" : "Shreya Sinha",
+                        "image" :  require("../../assets/img/CORDS/Shreya.jpg"),
                         "position" : "",
                         "fb" : "www.fb.com",
                         "ln" : "www.linkedin.com",
