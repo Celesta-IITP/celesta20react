@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { Alert } from "antd";
+import { Link } from "react-router-dom";
 
 // reactstrap components
 import {
@@ -506,9 +507,18 @@ class RegisterPage extends React.Component {
                           >
                             register
                           </Button>
+                          <Link to="/ca">
+                            <Button
+                              className="btn-round"
+                              color="primary"
+                              size="lg"
+                            >
+                              Register as CA?
+                            </Button>
+                          </Link>
                         </CardFooter>
 
-                        <a href={serverUrl + "ca"}>
+                        {/* <a href={serverUrl + "ca"}>
                           {" "}
                           <Button
                             className="btn-round"
@@ -517,7 +527,7 @@ class RegisterPage extends React.Component {
                           >
                             Register as CA?
                           </Button>
-                        </a>
+                        </a> */}
                       </div>
                     </Card>
                   </Col>
