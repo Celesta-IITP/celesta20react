@@ -147,7 +147,9 @@ class SigninPage extends React.Component {
                           alt="..."
                           src={require("assets/img/square-purple-1.png")}
                         />
-                        <CardTitle tag="h4" className="ml-2">Sign In</CardTitle>
+                        <CardTitle tag="h4" className="ml-2">
+                          Sign In
+                        </CardTitle>
                         <Row>
                           <Button
                             className="btn-icon btn-round"
@@ -235,7 +237,7 @@ class SigninPage extends React.Component {
                             </InputGroupAddon>
                             <Input
                               placeholder="Password"
-                              type="text"
+                              type="password"
                               onFocus={(e) =>
                                 this.setState({ passwordFocus: true })
                               }
@@ -247,19 +249,6 @@ class SigninPage extends React.Component {
                               }}
                             />
                           </InputGroup>
-                          <FormGroup check className="text-left">
-                            <Label check>
-                              <Input type="checkbox" />
-                              <span className="form-check-sign" />I agree to the{" "}
-                              <a
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                              >
-                                terms and conditions
-                              </a>
-                              .
-                            </Label>
-                          </FormGroup>
                         </Form>
                       </CardBody>
                       <CardFooter>

@@ -48,6 +48,7 @@ class RegisterPage extends React.Component {
     name: "",
     sex: "Sex",
     college: "",
+    refId: "",
     phone: "",
     msg: "",
     temp: "0",
@@ -78,6 +79,11 @@ class RegisterPage extends React.Component {
           this.setState({
             temp: "1",
             msg: "Mail send failed.",
+          });
+        } else if (error.status === 404) {
+          this.setState({
+            temp: "1",
+            msg: "Please check your referral id",
           });
         } else {
           this.setState({
@@ -126,7 +132,15 @@ class RegisterPage extends React.Component {
         "deg)",
     });
   };
-  handleCreate = async (name, email, password, college, sex, phone) => {
+  handleCreate = async (
+    name,
+    email,
+    password,
+    college,
+    sex,
+    phone,
+    referralId
+  ) => {
     const user = {
       name,
       email,
@@ -134,6 +148,7 @@ class RegisterPage extends React.Component {
       college,
       sex,
       phone,
+      referralId,
     };
     this.setState({
       msg: "",
@@ -151,11 +166,12 @@ class RegisterPage extends React.Component {
     console.log("Hello");
     this.setState({
       name: "",
-      mail: "",
+      email: "",
       sex: "Sex",
       phone: "",
       password: "",
       college: "",
+      refId: "",
     });
     console.log(this.state.name);
   };
@@ -172,7 +188,9 @@ class RegisterPage extends React.Component {
     const college = this.state.college;
     const sex = result;
     const phone = this.state.phone;
-    this.handleCreate(name, email, password, college, sex, phone);
+    const refId = this.state.refId ? this.state.refId : "CLST0000";
+
+    this.handleCreate(name, email, password, college, sex, phone, refId);
   };
   changeValue = (e) => {
     let result;
@@ -277,6 +295,7 @@ class RegisterPage extends React.Component {
                             <Input
                               placeholder="Full Name"
                               type="text"
+                              value={this.state.name}
                               onFocus={(e) =>
                                 this.setState({ fullNameFocus: true })
                               }
@@ -285,7 +304,6 @@ class RegisterPage extends React.Component {
                               }
                               onChange={(e) => {
                                 this.setState({ name: e.target.value });
-                                console.log(this.state.name);
                               }}
                             />
                           </InputGroup>
@@ -328,6 +346,7 @@ class RegisterPage extends React.Component {
                             <Input
                               placeholder="Password"
                               type="password"
+                              value={this.state.password}
                               onFocus={(e) =>
                                 this.setState({ passwordFocus: true })
                               }
@@ -336,6 +355,31 @@ class RegisterPage extends React.Component {
                               }
                               onChange={(e) =>
                                 this.setState({ password: e.target.value })
+                              }
+                            />
+                          </InputGroup>
+                          <InputGroup
+                            className={classnames({
+                              "input-group-focus": this.state.refIdFocus,
+                            })}
+                          >
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="fa fa-id-badge" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input
+                              placeholder="Referal Id(if any)"
+                              type="text"
+                              value={this.state.refId}
+                              onFocus={(e) =>
+                                this.setState({ refIdFocus: true })
+                              }
+                              onBlur={(e) =>
+                                this.setState({ refIdFocus: false })
+                              }
+                              onChange={(e) =>
+                                this.setState({ refId: e.target.value })
                               }
                             />
                           </InputGroup>
@@ -352,6 +396,7 @@ class RegisterPage extends React.Component {
                             <Input
                               placeholder="College"
                               type="text"
+                              value={this.state.college}
                               onFocus={(e) =>
                                 this.setState({ collegeFocus: true })
                               }
@@ -405,6 +450,7 @@ class RegisterPage extends React.Component {
                             <Input
                               placeholder="Phone-no"
                               type="text"
+                              value={this.state.phone}
                               onFocus={(e) =>
                                 this.setState({ phoneFocus: true })
                               }

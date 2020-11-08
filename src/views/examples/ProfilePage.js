@@ -95,14 +95,14 @@ class ProfilePage extends React.Component {
       file: e.target.files[0],
     });
   }
-  updateProfilePicture=async(e)=> {
+  updateProfilePicture = async (e) => {
     const token = localStorage.getItem("token");
     console.log(token);
     if (this.state.file) {
       await this.props.uploadPhoto(token, this.state.file);
       this.props.history.push("/");
     }
-  }
+  };
 
   render() {
     return (
@@ -217,6 +217,15 @@ class ProfilePage extends React.Component {
                               <label>College</label>
                               <Input
                                 defaultValue={this.state.userInfo.college}
+                                type="text"
+                              />
+                            </FormGroup>
+                          </Col>
+                          <Col md="6">
+                            <FormGroup>
+                              <label>Celesta Id</label>
+                              <Input
+                                defaultValue={this.state.userInfo.celestaId}
                                 type="text"
                               />
                             </FormGroup>
