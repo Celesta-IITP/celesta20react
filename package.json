@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.2.5",
     "axios": "^0.19.2",
-    "chart.js": "2.9.3",
+    "chart.js": "2.9.4",
     "classnames": "^2.2.6",
     "email-validator": "^2.0.4",
     "formik": "^2.1.4",
